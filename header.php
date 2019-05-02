@@ -22,14 +22,6 @@
 
 <body <?php body_class(); ?>>
 
-<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
-<script>
-
-
-
-</script>
-
-
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'warsztatqulinarny' ); ?></a>
 

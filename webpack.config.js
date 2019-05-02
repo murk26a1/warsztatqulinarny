@@ -33,7 +33,7 @@ module.exports = {
       // compile all .scss files to plain old css
       {
         test: /\.(sass|scss)$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
       },
       {
         test: /bootstrap\/dist\/js\/umd\//, use: 'imports-loader?jQuery=jquery'
