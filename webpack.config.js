@@ -8,6 +8,8 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+
 
 module.exports = {
   entry: ['./src/js/app.js', './src/css/app.scss'],
@@ -40,6 +42,11 @@ module.exports = {
   },
   plugins: [
     // extract css into dedicated file
+    new BrowserSyncPlugin({
+      host: 'localhost',
+      port: 3000,
+      proxy: 'http://localhost/wp/warsztat/'
+    }),
     new MiniCssExtractPlugin({
       filename: './dist/css/main.min.css'
     }),
