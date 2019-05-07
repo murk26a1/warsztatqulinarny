@@ -12,48 +12,45 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<?php wp_head(); ?>
+<head>
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+
+    <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'warsztatqulinarny' ); ?></a>
+    <header class="site-header">
+        <div class="logo">
+            <img src="<?php echo get_theme_file_uri(); ?>/img/ph-logo-w.png" />
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Szkolenia</a></li>
+                <li><a href="#">O mnie</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Faq</a></li>
+                <li><a href="#">Kontakt</a></li>
+            </ul>
+            <div class="social">
+                <a href="#">fb</a>
+                <a href="#">aa</a>
+                <a href="#">bb</a>
+            </div>
+        </nav>
+        <div class="basket">
+            KK
+        </div>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$warsztatqulinarny_description = get_bloginfo( 'description', 'display' );
-			if ( $warsztatqulinarny_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $warsztatqulinarny_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'warsztatqulinarny' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
-
-	<div id="content" class="site-content">
+        <button class=" hamburger" aria-label="Menu">
+            <span class="hamburger__container" tabindex="-1">
+                <span class="hamburger__bars">
+                </span>
+            </span>
+        </button>
+    </header>

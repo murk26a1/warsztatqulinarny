@@ -1,1 +1,645 @@
 @import "~bootstrap/scss/bootstrap";
+@import "var";
+@import "mixins";
+@import "buttons";
+@import "elements";
+@import "footer";
+@import "header";
+
+#wpadminbar {
+	display: none;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 16px;
+	font-size: 1.6rem;
+	font-family: $font-main;
+	color: $c-main;
+}
+
+a {
+	text-decoration: none;
+}
+a:focus,
+a:visited,
+a:hover,
+a:active {
+	text-decoration: none;
+	color: inherit;
+}
+
+h1 {
+	font-size: 6rem;
+	font-family: $font-sec;
+	color: $c-black;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 3rem;
+	font-family: $font-sec;
+	color: $c-black;
+	font-weight: bold;
+	@include md {
+		font-size: 3.6rem;
+	}
+}
+
+h3 {
+	font-size: 2.2rem;
+	font-family: $font-sec;
+	color: $c-black;
+}
+
+/*.container{
+  @include xxl{
+    max-width:1200px;
+  }
+}
+*/
+
+section {
+	position: relative;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	text-align: center;
+	@include md {
+		padding-top: 110px;
+		padding-bottom: 110px;
+		text-align: left;
+	}
+	h2 {
+		@include md {
+			display: inline-block;
+		}
+		color: #fff;
+	}
+	.wrapper-text {
+		padding-top: 30px;
+		padding-bottom: 30px;
+		@include md {
+			max-width: 95%;
+		}
+		p {
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+	}
+	.single-btn {
+		@include md {
+			float: right;
+			margin-right: 40px;
+		}
+	}
+}
+
+#section-banner {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	height: 115vh;
+	position: relative;
+	h1 {
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		color: #fff;
+		position: absolute;
+		left: 50%;
+		top: 15%;
+		transform: translate(-50%, 0);
+		text-align: center;
+		text-shadow: 4px 4px 6px #222;
+		line-height: 60px;
+		font-size: 4rem;
+		@include md {
+			top: 25%;
+			letter-spacing: 10px;
+			font-size: 6.4rem;
+			top: 25%;
+			margin-left: -150px;
+		}
+		.red {
+			color: $c-accent;
+		}
+		.margin {
+			@include md {
+				margin-left: 680px;
+			}
+		}
+	}
+	.wrapper {
+		position: absolute;
+		left: 50%;
+		top: 35%;
+		transform: translate(-50%, 0);
+		@include md {
+			top: 45%;
+			left: 60%;
+		}
+		h2 {
+			color: #fff;
+			font-size: 2.4rem;
+			font-weight: normal;
+			max-width: 500px;
+		}
+		.double-btn {
+			flex-direction: column;
+			margin-top: 40px;
+			@include md {
+				flex-direction: row;
+			}
+			.m-btn {
+				margin-top: 25px;
+			}
+		}
+	}
+}
+
+#section-courses {
+	padding-bottom: 40px;
+	.parallax{
+		background:$c-accent;
+		@include md{
+			background:#fff;
+		}
+	}
+	.wrapper {
+		margin-top: 10px;
+		min-height: 300px;
+		@include md {
+			padding: 20px;
+			border-left: 1px dashed #ddd;
+			border-bottom: 1px dashed #ddd;
+			border-right: 1px dashed #ddd;
+		}
+	}
+	.header {
+		@include md {
+			padding-left: 25px;
+		}
+	}
+	.courses {
+		margin-bottom: 100px;
+		h3 {
+			font-size: 3.2rem;
+			margin-bottom: 20px;
+			font-weight: bold;
+		}
+		h4 {
+			font-size: 1rem;
+			text-transform: uppercase;
+			color: $c-main;
+			margin-top: 15px;
+		}
+		.courses-btn {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 100%;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			button {
+				margin-top: 5px;
+				margin-bottom: 5px;
+				font-size: 1.4rem;
+				background: #fff;
+				border: 1px dashed $c-accent;
+				color: #111;
+				padding-top: 7px;
+				padding-bottom: 7px;
+				margin-right: 35px;
+				font-family: $font-sec;
+				font-weight: bold;
+				text-transform: uppercase;
+				&:disabled {
+					background: $c-accent;
+					color: #fff;
+				}
+			}
+		}
+		.card {
+			margin-top: 30px;
+			border: none;
+			background: none;
+			@include md {
+				padding-left: 50px;
+				border-left: 2px solid #f0f0f0;
+			}
+			h3,
+			h4,
+			p {
+				text-shadow: 2px 1px #fff;
+			}
+			.single-btn {
+				margin-top: 30px;
+				@include md {
+					float: left;
+				}
+			}
+			.img-wrap {
+				display: none;
+				@include md {
+					display: block;
+					height: 100%;
+					position: relative;
+					img {
+						position: absolute;
+						top: 3%;
+						left: -50%;
+						width: 150%;
+						height: 100%;
+						object-fit: cover;
+						border-radius: 2px;
+						opacity: 0.2;
+						box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.8);
+						transition: opacity 0.7s;
+						z-index: -1;
+					}
+				}
+			}
+		}
+	}
+}
+
+#section-about {
+	padding-top: 40px;
+	.header {
+		@include md {
+			padding-left: 15px;
+		}
+	}
+	.wrapper {
+		@include md {
+			padding-left: 30px;
+			padding-top: 20px;
+			padding-bottom: 30px;
+		}
+	}
+	.row-border {
+		@include md {
+			border-left: 2px solid #eee;
+			border-bottom: 2px solid #eee;
+		}
+	}
+	.deska {
+		opacity: 0.1;
+		@include md {
+			left: -200px;
+		}
+	}
+	.cebula {
+		top: 6%;
+		left: -8%;
+		height: 173px;
+		width: 200px;
+	}
+	.lisc {
+		bottom: 3%;
+		left: 2%;
+		height: 96px;
+		width: 200px;
+	}
+	.lisc2 {
+		top: 0%;
+		right: 25%;
+		height: 96px;
+		width: 200px;
+	}
+	.papryka {
+		top: 15%;
+		right: -3%;
+		height: 185px;
+		width: 200px;
+	}
+	.ziemniak {
+		bottom: 5%;
+		right: 0%;
+		height: 167px;
+		width: 200px;
+	}
+	.wrapper-photos {
+		position: relative;
+		.photos {
+			position: absolute;
+			height: 450px;
+			width: 310px;
+			border: 4px solid #fff;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		#photo1 {
+			left: 50px;
+			top: 30px;
+		}
+		#photo2 {
+			left: 90px;
+			top: 55px;
+		}
+		#photo3 {
+			left: 130px;
+			top: 80px;
+		}
+	}
+}
+
+#section-black-bg {
+	background: #000;
+	color: #fff;
+	h2 {
+		color: #fff;
+	}
+}
+
+#section-courses-t {
+	.section-head {
+		@include md {
+			text-align: center;
+		}
+	}
+	.wrapper {
+		border: 1px solid $c-accent;
+		margin-top: 40px;
+		position: relative;
+		@include md {
+			margin-top: 60px;
+		}
+		.course-img {
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 100%;
+			height: 230px;
+			@include md {
+				height: 180px;
+			}
+		}
+		p,
+		h3 {
+			@include md {
+				margin-left: 100px;
+			}
+		}
+		p {
+			padding-top: 5px;
+		}
+		h3 {
+			padding-top: 20px;
+			@include md {
+				padding-top: 30px;
+			}
+		}
+		.info {
+			position: absolute;
+			background: $c-accent;
+			color: #fff;
+			font-size: 2rem;
+			padding: 7px 25px 7px 25px;
+		}
+		.price {
+			top: 0;
+			right: 0;
+			@include md {
+				right: auto;
+				left: 0;
+			}
+		}
+		.date {
+			top: 200px;
+			left: 50%;
+			transform: translate(-50%, 0);
+			font-size: 0.8em;
+			width: 100%;
+			@include md {
+				width: auto;
+				top: auto;
+				left: 28%;
+				transform: translate(0, 0);
+				bottom: -15px;
+			}
+		}
+		.full {
+			top: 0px;
+			left: 0;
+			font-size: 0.8em;
+			@include md {
+				top: auto;
+				bottom: -15px;
+				left: 50%;
+			}
+		}
+	}
+}
+
+#section-gallery {
+	padding-bottom: 6px;
+	padding-top: 6px;
+	.col-12 {
+		padding-right: 6px;
+		padding-left: 6px;
+	}
+	.d-md-block {
+		padding: 0;
+	}
+	.mid {
+		background: $c-accent;
+		height: 300px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		padding: 50px;
+		@include md {
+			height: 400px;
+		}
+		.svg-knives-2 {
+			display: none;
+			@include md {
+				display: block;
+			}
+		}
+		p,
+		h2 {
+			color: #fff;
+			margin-bottom: 20px;
+		}
+		p {
+			margin-bottom: 50px;
+		}
+	}
+	.up,
+	.down {
+		height: 169px;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.up {
+		margin-bottom: 6px;
+	}
+	.down {
+		margin-top: 6px;
+	}
+	.left,
+	.right {
+		height: 750px;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.single-btn {
+		margin: 0;
+	}
+}
+
+#section-video {
+	height: 550px;
+	overflow: hidden;
+	position: relative;
+	padding: 0;
+	margin-bottom: 6px;
+	video {
+		height: 550px;
+		width: 100%;
+		object-fit: cover;
+		object-position: center;
+	}
+	.overlay {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.6);
+	}
+}
+
+#section-about-me,
+#section-contact {
+	background: $c-gray;
+	position: relative;
+	padding: 0;
+	.wrapper {
+		position: absolute;
+		left: 0;
+		top: 0;
+		overflow: hidden;
+		height: 400px;
+		width: 100%;
+		@include md {
+			position: static;
+			height: 100%;
+		}
+		.img {
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			height: 400px;
+			width: 100%;
+			@include md {
+				height: 100%;
+				width: 100%;
+			}
+		}
+		.half-img {
+			position: absolute;
+			right: -80%;
+			bottom: -10%;
+			width: 120%;
+			height: 120%;
+			background: rgba(255, 0, 0, 0.75);
+			transform: rotate(25deg);
+			@include md {
+				display: none;
+			}
+		}
+	}
+	.column-text {
+		@include md {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding-top: 100px;
+			padding-bottom: 100px;
+		}
+	}
+	h2 {
+		position: absolute;
+		right: 15%;
+		top: 190px;
+		color: #fff;
+		@include md {
+			color: $c-black;
+			position: static;
+			background: rgba($c-accent, 0.85);
+			width: 100%;
+			padding-top: 15px;
+			padding-bottom: 15px;
+			color: #fff;
+		}
+	}
+	.wrapper-text {
+		margin-top: 430px;
+		@include md {
+			margin-top: 0;
+		}
+	}
+	h2,
+	.wrapper-text {
+		@include md {
+			padding-left: 40px;
+			padding-right: 10px;
+		}
+	}
+	.single-btn {
+		margin-bottom: 70px;
+		@include md {
+			float: left;
+			padding-left: 60px;
+			margin-bottom: 0;
+		}
+	}
+}
+
+#section-contact {
+	background: #fff;
+	@include md {
+		background: $c-gray;
+	}
+	.column-text {
+		padding-top: 70px;
+		padding-bottom: 70px;
+	}
+	h2 {
+		position: static;
+		background: rgba($c-accent, 0.85);
+		width: 100%;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		color: #fff;
+		@include md {
+			color: #fff;
+		}
+	}
+	.wrapper-text {
+		margin: 0;
+	}
+	.wrapper {
+		background: #000;
+		color: #fff;
+		height: auto;
+		padding: 50px;
+		position: static;
+		p {
+			padding: 0;
+		}
+	}
+}

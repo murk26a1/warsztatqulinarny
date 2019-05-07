@@ -11,26 +11,34 @@
 
 ?>
 
-	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'warsztatqulinarny' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'warsztatqulinarny' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'warsztatqulinarny' ), 'warsztatqulinarny', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-3 col-md-2">
+                <img src="<?php echo get_theme_file_uri(); ?>/img/ph-logo.png" />
+            </div>
+            <div class="col-8 col-md-5 wrapper">
+                <h3>Warsztat Qulinarny</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vulputate non libero vel aliquam. </p>
+                <ul>
+                    <li>kontakt@warsztatqulinarny.pl</li>
+                    <li>123 456 789</li>
+                    <li>30-001 Kraków, Rynek 1</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid copyright">
+        <div class="col-12">
+            <span>Copyright © 2019 warsztatqulinarny.pl</span>
+        </div>
+    </div>
+</footer>
 
 <?php wp_footer(); ?>
 
 </body>
+
 </html>

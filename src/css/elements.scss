@@ -1,0 +1,174 @@
+.overf {
+	overflow: hidden;
+	@media (min-width: 1700px) {
+		max-width: 1720px;
+		margin: auto;
+		overflow: visible;
+	}
+}
+
+.bg-image {
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	overflow: hidden;
+}
+
+.ill {
+	display: none;
+	@include md {
+		display: block;
+		position: absolute;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		opacity: 0.15;
+		overflow: hidden;
+		z-index: -1;
+	}
+}
+
+.svg-knives {
+	width: 130px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	.cls-1 {
+		fill: #fff;
+	}
+	@include md {
+		display: inline-block;
+		vertical-align: bottom;
+		width: 90px;
+		margin-right: 15px;
+	}
+}
+
+.svg-knives-2 {
+	width: 100px;
+	margin-bottom: 20px;
+	.cls-1 {
+		fill: #fff;
+	}
+}
+
+.col-no-padding {
+	padding: 0;
+}
+
+form {
+	width: 100%;
+	label {
+		width: 100%;
+	}
+	input,
+	textarea {
+		width: 100%;
+		border: 1px solid $c-accent;
+		background: rgba(255, 255, 255, 0.9);
+		margin-top: 10px;
+	}
+	input[type="checkbox"] {
+		width: 30px;
+		height: 15px;
+		border: 4px solid $c-accent;
+	}
+	.wpcf7-list-item-label {
+		font-size: 1.2rem;
+	}
+	.wpcf7-submit {
+		background: $c-accent;
+		color: #fff;
+		padding: 8px 45px 8px 45px;
+		position: relative;
+		border-radius: 5px;
+		border: none;
+	}
+}
+
+.divider {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	#svg_wave {
+		fill: #fff;
+	}
+}
+
+.anim-left {
+	clip-path: inset(0% 100% 0% 0%);
+	transition: clip-path 0.5s;
+	transition-timing-function: ease-in-out;
+}
+
+.anim-left-s {
+	transition: clip-path 1s;
+	transition-timing-function: ease-in-out;
+	clip-path: inset(0% 0%);
+}
+
+.opacity0 {
+	opacity: 0;
+	transition: opacity 0.1s;
+}
+.opacity1 {
+	opacity: 1;
+	transition: opacity 0.5s;
+}
+
+.delay05 {
+	transition-delay: 0.5s;
+}
+.delay1 {
+	transition-delay: 1s;
+}
+.delay15 {
+	transition-delay: 1.5s;
+}
+.delay2 {
+	transition-delay: 2s;
+}
+
+.dis-scroll {
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+.header{
+	width: 100%;
+	background: rgba($c-accent,0.85);
+	padding-top:14px;
+	padding-bottom:14px;
+	position:relative;
+}
+
+.header::after{
+	content: "";
+	width: calc(100% - 10px);
+	height:calc(100% - 10px);
+	left:50%;
+	top:50%;
+	transform:translate(-50%,-50%);
+	background:transparent;
+	border:6px solid #fff;
+	position:absolute;
+	clip-path: inset(0% 100% 0% 0%);
+	clip-path: inset(0%);
+	transition: clip-path 1s;
+
+}
+
+
+.parallax {
+	position: relative;
+	overflow: hidden;
+  }
+  
+  .follow {
+	position: absolute;
+  }

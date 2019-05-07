@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 
+
 // include the js minification plugin
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
@@ -12,7 +13,7 @@ var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
 
 module.exports = {
-  entry: ['./src/js/app.js', './src/css/app.scss'],
+  entry: ['./src/js/app.js', './src/js/anim.js', './src/css/app.scss'],
   output: {
     filename: './dist/js/app.min.js',
     path: path.resolve(__dirname)
@@ -26,7 +27,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ['babel-preset-env']
+            presets: ['@babel/preset-env']
          }
         }
       },

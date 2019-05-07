@@ -170,16 +170,24 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 function custom_fonts() {
 
+	wp_enqueue_style( 'FiraSans', 'https://fonts.googleapis.com/css?family=Fira+Sans:400,700&amp;subset=latin-ext' );
+	wp_enqueue_style( 'Montserrat', 'https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;subset=latin-ext' );
+	wp_enqueue_style( 'Poppins', 'https://fonts.googleapis.com/css?family=Poppins:400,700&amp;subset=latin-ext' );
+	wp_enqueue_style( 'Teko', 'https://fonts.googleapis.com/css?family=Teko:400,700&amp;subset=latin-ext' );
+	
+
 }
 
 function custom_scripts() {
 
 	wp_deregister_script( 'jquery-core' );
-    wp_deregister_script( 'jquery-migrate' );
-/**
- * wp_enqueue_script( 'jquery-core', "https://code.jquery.com/jquery-3.1.1.min.js", NULL , '3.1.1' );
- * wp_enqueue_script( 'jquery-migrate', "https://code.jquery.com/jquery-migrate-3.0.0.min.js", array( 'jquery-core' ), '3.0.0' );
-*/
+	wp_deregister_script( 'jquery-migrate' );
+	
+		wp_enqueue_script( 'jquery-core', "https://code.jquery.com/jquery-3.1.1.min.js", NULL , '3.1.1' );
+		wp_enqueue_script( 'jquery-migrate', "https://code.jquery.com/jquery-migrate-3.0.0.min.js", array( 'jquery-core' ), '3.0.0' );
+		wp_enqueue_script( 'lozad', "https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js", NULL, '3.0.0' );
+		
+	
 	wp_enqueue_style( 'main_css', get_template_directory_uri() . '/dist/css/main.min.css' );
 	wp_enqueue_script( 'main_js', get_template_directory_uri() . '/dist/js/app.min.js' , null , null , true );
   }
@@ -187,3 +195,33 @@ function custom_scripts() {
   add_action('wp_enqueue_scripts', 'custom_scripts');
 
   add_action('wp_enqueue_scripts', 'custom_fonts');
+
+
+
+  function remove_max_srcset_image_width( $max_width ) {
+    $max_width = 1920;
+    return $max_width;
+}
+
+add_image_size( 'xl', 1366, 9999 ); // Unlimited Height Mode
+add_image_size( 'xxl', 1920, 9999 ); // Unlimited Height Mode
+
+add_filter( 'max_srcset_image_width', 'remove_max_srcset_image_width' );
+  
+  function img_resp($image_id,$image_size,$max_width){
+
+	// check the image ID is not blank
+	if($image_id != '') {
+
+		// set the default src image size
+		$image_src = wp_get_attachment_image_url( $image_id, $image_size );
+
+		// set the srcset with various image sizes
+		$image_srcset = wp_get_attachment_image_srcset( $image_id, $image_size );
+
+		// generate the markup for the responsive image
+		echo 'src="'.$image_src.'" srcset="'.$image_srcset.'" sizes="(max-width: '.$max_width.') 100vw, '.$max_width.'"';
+
+	}
+}
+
