@@ -12,7 +12,7 @@
 	justify-content: space-between;
 	align-items: center;
 	font-family: $font-sec;
-	font-weight: bold;
+	font-weight: normal;
 	.logo {
 		width: 50%;
 		@include md {
@@ -21,6 +21,7 @@
 		img {
 			width: 100%;
 			margin-left: 15px;
+			height: auto;
 			@include xl {
 				margin-left: 50px;
 			}
@@ -31,7 +32,7 @@
 		right: -100%;
 		top: 0;
 		background-color: rgba(0, 0, 0, 0.95);
-		background-image: url(https://www.transparenttextures.com/patterns/cream-pixels.png);
+		background-image: url(https://www.transparenttextures.com/patterns/cross-stripes.png);
 		width: 100%;
 		height: 100vh;
 		transition: right 0.3s ease-in-out;
@@ -43,6 +44,13 @@
 			display: flex;
 			justify-content: flex-end;
 			width: auto;
+			margin-left: 15%;
+		}
+		a,
+		a:hover,
+		a:visited,
+		a:focus {
+			color: #fff;
 		}
 		ul {
 			list-style: none;
@@ -65,14 +73,147 @@
 			li {
 				@include xl {
 					display: inline-block;
-					margin-left: 10px;
-					margin-right: 10px;
+					margin-left: 15px;
+					margin-right: 15px;
 					padding-left: 5px;
 					padding-right: 5px;
 				}
 			}
 		}
+		.menu_szkolenia {
+			ul {
+				position: absolute;
+				left: 50%;
+				padding: 0;
+				margin: 0;
+				display: none;
+				li {
+					img {
+						display: none;
+						@include lg {
+							display: inline-block;
+							width: 75px;
+							height: 50px;
+							object-fit: cover;
+							margin-right: 50px;
+							border-right: 1px solid #f0f0f0;
+						}
+					}
+				}
+			}
+			.szkolenia-active {
+				display: block;
+				margin-top: 50px;
+				width: 300px;
+				@include lg {
+					position: absolute;
+					top: 30%;
+					left: 0;
+					width: 100%;
+					text-align: left;
+					li {
+						display: block;
+						padding: 0;
+						border: 1px solid #f0f0f0;
+						border-top: 0px solid #f0f0f0;
+						background: $c-accent2;
+						a {
+							height: 100%;
+							width: 100%;
+							display: block;
+						}
+					}
+					li:first-child {
+						border-top: 1px solid #f0f0f0;
+					}
+				}
+			}
+		}
 	}
+
+	.basket {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		@include md {
+			bottom: unset;
+			top: 20%;
+		}
+		.fas {
+			width: 100%;
+			font-size: 3rem;
+			border: 2px solid #fff;
+			padding: 20px;
+			background: $c-accent2;
+			@include md {
+				width: auto;
+			}
+		}
+		a {
+			color: #fff;
+		}
+		.site-header-cart {
+			width: 100%;
+			text-align: center;
+			@include md {
+				text-align: left;
+				width: auto;
+			}
+			.cart_hov {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				font-family: monospace;
+				.cart-contents {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					left: 0;
+					top: 0;
+					.amount {
+						display: none;
+					}
+					.count {
+						position: absolute;
+						left:51%;
+						bottom: 4px;
+						transform:translate(-50%,0);
+						@include md {
+							left:unset;
+							transform:translate(0,0);
+							right: 15px;
+						}
+					}
+				}
+			}
+		}
+
+		.widget_shopping_cart_content {
+			background: $c-accent2;
+			border: 2px solid #fff;
+			padding: 20px;
+			width: 400px;
+
+			.woocommerce-mini-cart__total {
+				text-align: center;
+				padding-top: 20px;
+			}
+			.buttons {
+				display: flex;
+				justify-content: space-between;
+				a {
+					background: $c-accent;
+					&:hover {
+						color: #fff;
+						opacity: 0.9;
+					}
+				}
+			}
+		}
+	}
+
 	.social {
 		position: absolute;
 		left: 0;
@@ -80,23 +221,21 @@
 		display: flex;
 		justify-content: space-evenly;
 		width: 100%;
+		font-size: 2rem;
 		@include xl {
 			position: static;
 			width: 200px;
 			align-items: center;
 			margin-left: 30px;
-		}
-	}
-	.basket {
-		display: none;
-		@include xl {
-			display: block;
-			margin-right: 50px;
+			margin-right:50px;
 		}
 	}
 
 	.nav-active {
 		right: 0;
+	}
+	.nav-display {
+		display: none;
 	}
 }
 
@@ -105,8 +244,8 @@
 }
 
 .nav-down {
-	background-color: rgba(0, 0, 0, 0.95);
-	background-image: url(https://www.transparenttextures.com/patterns/cream-pixels.png);
+	background-color: $c-accent2;
+	background-image: url(https://www.transparenttextures.com/patterns/cross-stripes.png);
 }
 
 .hamburger {

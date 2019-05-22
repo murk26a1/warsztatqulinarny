@@ -9,27 +9,70 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+<article class="article-blog" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+	<div class="thumbnail">
+		<?php warsztatqulinarny_post_thumbnail(); ?>
+	</div>
 	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			warsztatqulinarny_posted_on();
-			warsztatqulinarny_posted_by();
+		<?php
+		if ('post' === get_post_type()) :
 			?>
-		</div><!-- .entry-meta -->
+			<div class="entry-meta">
+				<?php
+				warsztatqulinarny_posted_on();
+				?>
+
+<?php warsztatqulinarny_entry_footer(); ?>
+
+			</div>
 		<?php endif; ?>
-	</header><!-- .entry-header -->
+		<?php
+		if (is_singular()) :
+			the_title('<h1 class="entry-title">', '</h1>');
+		else :
+			the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
+		endif;
 
-	<?php warsztatqulinarny_post_thumbnail(); ?>
+		?>
+	</header>
+	<div class="entry-content">
 
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
+		<?php
+		if (!is_singular()) { ?>
 
-	<footer class="entry-footer">
-		<?php warsztatqulinarny_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+
+			<p>
+				<?php echo wp_trim_words(get_the_excerpt(), 60); ?>
+			</p>
+		<?php } else { ?>
+
+			<?php echo the_content(); ?>
+
+		<?php } ?>
+		<?php
+		if (!is_singular()) { ?>
+			<div class="single-btn">
+				<a href="<?php the_permalink(); ?>" class="m-btn">więcej</a>
+			</div>
+
+		<?php } ?>
+
+		<?php
+
+
+		wp_link_pages(array(
+			'before' => '<div class="page-links">' . esc_html__('Pages:', 'warsztatqulinarny'),
+			'after'  => '</div>',
+		));
+		?>
+
+
+
+	</div><!-- .entry-content -->
+
+	<footer>
+		
+	</footer>
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -9,51 +9,69 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article class="article-blog" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+	<div class="thumbnail">
+		<?php warsztatqulinarny_post_thumbnail(); ?>
+	</div>
 	<header class="entry-header">
 		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-
-		if ( 'post' === get_post_type() ) :
+		if ('post' === get_post_type()) :
 			?>
 			<div class="entry-meta">
 				<?php
 				warsztatqulinarny_posted_on();
-				warsztatqulinarny_posted_by();
 				?>
-			</div><!-- .entry-meta -->
+
+<?php warsztatqulinarny_entry_footer(); ?>
+
+			</div>
 		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<?php warsztatqulinarny_post_thumbnail(); ?>
-
-	<div class="entry-content">
 		<?php
-		the_content( sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'warsztatqulinarny' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
+		if (is_singular()) :
+			the_title('<h1 class="entry-title">', '</h1>');
+		else :
+			the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
+		endif;
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'warsztatqulinarny' ),
-			'after'  => '</div>',
-		) );
 		?>
+	</header>
+	<div class="entry-content">
+
+		<?php
+		if (!is_singular()) { ?>
+
+
+			<p>
+				<?php echo wp_trim_words(get_the_excerpt(), 60); ?>
+			</p>
+		<?php } else { ?>
+
+			<?php echo the_content(); ?>
+
+		<?php } ?>
+		<?php
+		if (!is_singular()) { ?>
+			<div class="single-btn">
+				<a href="<?php the_permalink(); ?>" class="m-btn">więcej</a>
+			</div>
+
+		<?php } ?>
+
+		<?php
+
+
+		wp_link_pages(array(
+			'before' => '<div class="page-links">' . esc_html__('Pages:', 'warsztatqulinarny'),
+			'after'  => '</div>',
+		));
+		?>
+
+
+
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php warsztatqulinarny_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	<footer>
+		<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Udostępnij</a></div>
+	</footer>
 </article><!-- #post-<?php the_ID(); ?> -->

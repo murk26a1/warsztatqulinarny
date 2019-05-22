@@ -1,16 +1,51 @@
 .site-footer {
-	padding-top: 40px;
+	padding-top: 100px;
 	color: #fff;
-	background-color: #000000;
-	background-image: url("https://www.transparenttextures.com/patterns/vertical-cloth.png");
+    background-color: $c-accent2;
+    background-image: url(https://www.transparenttextures.com/patterns/cross-stripes.png);
 	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+	text-align: center;
+	a,
+	a:visited,
+	a:hover,
+	a:focus {
+		color: #fff;
+	}
+	.logo {
+		img {
+			margin: auto;
+			display: block;
+			width:100%;
+			max-width: 400px;
+			height:auto;
+		}
+	}
+	.footer-info {
+		@include md {
+			display: flex;
+			align-items: center;
+		}
+	}
+	.social {
+		margin-top: 20px;
+		margin-bottom: 40px;
+		padding-bottom: 20px;
+		padding-top: 40px;
+		border-bottom: 3px solid $c-accent;
+		border-left: 3px solid $c-accent;
+		border-right: 3px solid $c-accent;
+		a {
+			margin-left: 10px;
+			margin-right: 10px;
+			font-size: 2rem;
+		}
+	}
 	.wrapper {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		margin-bottom: 30px;
 		h3 {
 			color: $c-accent;
 			font-weight: bold;
+			text-transform:uppercase;
 		}
 		p {
 			padding-top: 10px;
@@ -21,8 +56,24 @@
 			list-style: none;
 			padding: 0;
 			font-size: 1.4rem;
+			@include md {
+				text-align: left;
+				margin-left: 60px;
+			}
 			li {
 				padding-top: 6px;
+				i {
+					margin-right: 7px;
+				}
+			}
+		}
+	}
+	iframe {
+		@include md {
+			opacity: 0.5;
+			transition: opacity 0.5s;
+			&:hover {
+				opacity: 1;
 			}
 		}
 	}

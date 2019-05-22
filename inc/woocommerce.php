@@ -15,21 +15,23 @@
  *
  * @return void
  */
-function warsztatqulinarny_woocommerce_setup() {
-	add_theme_support( 'woocommerce' );
-	add_theme_support( 'wc-product-gallery-zoom' );
-	add_theme_support( 'wc-product-gallery-lightbox' );
-	add_theme_support( 'wc-product-gallery-slider' );
+function warsztatqulinarny_woocommerce_setup()
+{
+	add_theme_support('woocommerce');
+	add_theme_support('wc-product-gallery-zoom');
+	add_theme_support('wc-product-gallery-lightbox');
+	add_theme_support('wc-product-gallery-slider');
 }
-add_action( 'after_setup_theme', 'warsztatqulinarny_woocommerce_setup' );
+add_action('after_setup_theme', 'warsztatqulinarny_woocommerce_setup');
 
 /**
  * WooCommerce specific scripts & stylesheets.
  *
  * @return void
  */
-function warsztatqulinarny_woocommerce_scripts() {
-	wp_enqueue_style( 'warsztatqulinarny-woocommerce-style', get_template_directory_uri() . '/woocommerce.css' );
+function warsztatqulinarny_woocommerce_scripts()
+{
+	wp_enqueue_style('warsztatqulinarny-woocommerce-style', get_template_directory_uri() . '/woocommerce.css');
 
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
@@ -43,9 +45,9 @@ function warsztatqulinarny_woocommerce_scripts() {
 			font-style: normal;
 		}';
 
-	wp_add_inline_style( 'warsztatqulinarny-woocommerce-style', $inline_font );
+	wp_add_inline_style('warsztatqulinarny-woocommerce-style', $inline_font);
 }
-add_action( 'wp_enqueue_scripts', 'warsztatqulinarny_woocommerce_scripts' );
+add_action('wp_enqueue_scripts', 'warsztatqulinarny_woocommerce_scripts');
 
 /**
  * Disable the default WooCommerce stylesheet.
@@ -54,51 +56,55 @@ add_action( 'wp_enqueue_scripts', 'warsztatqulinarny_woocommerce_scripts' );
  * protect you during WooCommerce core updates.
  *
  * @link https://docs.woocommerce.com/document/disable-the-default-stylesheet/
- */
-add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
+add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+ */
 /**
  * Add 'woocommerce-active' class to the body tag.
  *
  * @param  array $classes CSS classes applied to the body tag.
  * @return array $classes modified to include 'woocommerce-active' class.
  */
-function warsztatqulinarny_woocommerce_active_body_class( $classes ) {
+function warsztatqulinarny_woocommerce_active_body_class($classes)
+{
 	$classes[] = 'woocommerce-active';
 
 	return $classes;
 }
-add_filter( 'body_class', 'warsztatqulinarny_woocommerce_active_body_class' );
+add_filter('body_class', 'warsztatqulinarny_woocommerce_active_body_class');
 
 /**
  * Products per page.
  *
  * @return integer number of products.
  */
-function warsztatqulinarny_woocommerce_products_per_page() {
+function warsztatqulinarny_woocommerce_products_per_page()
+{
 	return 12;
 }
-add_filter( 'loop_shop_per_page', 'warsztatqulinarny_woocommerce_products_per_page' );
+add_filter('loop_shop_per_page', 'warsztatqulinarny_woocommerce_products_per_page');
 
 /**
  * Product gallery thumnbail columns.
  *
  * @return integer number of columns.
  */
-function warsztatqulinarny_woocommerce_thumbnail_columns() {
+function warsztatqulinarny_woocommerce_thumbnail_columns()
+{
 	return 4;
 }
-add_filter( 'woocommerce_product_thumbnails_columns', 'warsztatqulinarny_woocommerce_thumbnail_columns' );
+add_filter('woocommerce_product_thumbnails_columns', 'warsztatqulinarny_woocommerce_thumbnail_columns');
 
 /**
  * Default loop columns on product archives.
  *
  * @return integer products per row.
  */
-function warsztatqulinarny_woocommerce_loop_columns() {
+function warsztatqulinarny_woocommerce_loop_columns()
+{
 	return 3;
 }
-add_filter( 'loop_shop_columns', 'warsztatqulinarny_woocommerce_loop_columns' );
+add_filter('loop_shop_columns', 'warsztatqulinarny_woocommerce_loop_columns');
 
 /**
  * Related Products Args.
@@ -106,50 +112,53 @@ add_filter( 'loop_shop_columns', 'warsztatqulinarny_woocommerce_loop_columns' );
  * @param array $args related products args.
  * @return array $args related products args.
  */
-function warsztatqulinarny_woocommerce_related_products_args( $args ) {
+function warsztatqulinarny_woocommerce_related_products_args($args)
+{
 	$defaults = array(
 		'posts_per_page' => 3,
 		'columns'        => 3,
 	);
 
-	$args = wp_parse_args( $defaults, $args );
+	$args = wp_parse_args($defaults, $args);
 
 	return $args;
 }
-add_filter( 'woocommerce_output_related_products_args', 'warsztatqulinarny_woocommerce_related_products_args' );
+add_filter('woocommerce_output_related_products_args', 'warsztatqulinarny_woocommerce_related_products_args');
 
-if ( ! function_exists( 'warsztatqulinarny_woocommerce_product_columns_wrapper' ) ) {
+if (!function_exists('warsztatqulinarny_woocommerce_product_columns_wrapper')) {
 	/**
 	 * Product columns wrapper.
 	 *
 	 * @return  void
 	 */
-	function warsztatqulinarny_woocommerce_product_columns_wrapper() {
+	function warsztatqulinarny_woocommerce_product_columns_wrapper()
+	{
 		$columns = warsztatqulinarny_woocommerce_loop_columns();
-		echo '<div class="columns-' . absint( $columns ) . '">';
+		echo '<div class="columns-' . absint($columns) . '">';
 	}
 }
-add_action( 'woocommerce_before_shop_loop', 'warsztatqulinarny_woocommerce_product_columns_wrapper', 40 );
+add_action('woocommerce_before_shop_loop', 'warsztatqulinarny_woocommerce_product_columns_wrapper', 40);
 
-if ( ! function_exists( 'warsztatqulinarny_woocommerce_product_columns_wrapper_close' ) ) {
+if (!function_exists('warsztatqulinarny_woocommerce_product_columns_wrapper_close')) {
 	/**
 	 * Product columns wrapper close.
 	 *
 	 * @return  void
 	 */
-	function warsztatqulinarny_woocommerce_product_columns_wrapper_close() {
+	function warsztatqulinarny_woocommerce_product_columns_wrapper_close()
+	{
 		echo '</div>';
 	}
 }
-add_action( 'woocommerce_after_shop_loop', 'warsztatqulinarny_woocommerce_product_columns_wrapper_close', 40 );
+add_action('woocommerce_after_shop_loop', 'warsztatqulinarny_woocommerce_product_columns_wrapper_close', 40);
 
 /**
  * Remove default WooCommerce wrapper.
  */
-remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
-remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
+remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 
-if ( ! function_exists( 'warsztatqulinarny_woocommerce_wrapper_before' ) ) {
+if (!function_exists('warsztatqulinarny_woocommerce_wrapper_before')) {
 	/**
 	 * Before Content.
 	 *
@@ -157,31 +166,33 @@ if ( ! function_exists( 'warsztatqulinarny_woocommerce_wrapper_before' ) ) {
 	 *
 	 * @return void
 	 */
-	function warsztatqulinarny_woocommerce_wrapper_before() {
+	function warsztatqulinarny_woocommerce_wrapper_before()
+	{
 		?>
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
 			<?php
+		}
 	}
-}
-add_action( 'woocommerce_before_main_content', 'warsztatqulinarny_woocommerce_wrapper_before' );
+	add_action('woocommerce_before_main_content', 'warsztatqulinarny_woocommerce_wrapper_before');
 
-if ( ! function_exists( 'warsztatqulinarny_woocommerce_wrapper_after' ) ) {
-	/**
-	 * After Content.
-	 *
-	 * Closes the wrapping divs.
-	 *
-	 * @return void
-	 */
-	function warsztatqulinarny_woocommerce_wrapper_after() {
+	if (!function_exists('warsztatqulinarny_woocommerce_wrapper_after')) {
+		/**
+		 * After Content.
+		 *
+		 * Closes the wrapping divs.
+		 *
+		 * @return void
+		 */
+		function warsztatqulinarny_woocommerce_wrapper_after()
+		{
 			?>
 			</main><!-- #main -->
 		</div><!-- #primary -->
-		<?php
-	}
+	<?php
 }
-add_action( 'woocommerce_after_main_content', 'warsztatqulinarny_woocommerce_wrapper_after' );
+}
+add_action('woocommerce_after_main_content', 'warsztatqulinarny_woocommerce_wrapper_after');
 
 /**
  * Sample implementation of the WooCommerce Mini Cart.
@@ -195,7 +206,7 @@ add_action( 'woocommerce_after_main_content', 'warsztatqulinarny_woocommerce_wra
 	?>
  */
 
-if ( ! function_exists( 'warsztatqulinarny_woocommerce_cart_link_fragment' ) ) {
+if (!function_exists('warsztatqulinarny_woocommerce_cart_link_fragment')) {
 	/**
 	 * Cart Fragments.
 	 *
@@ -204,7 +215,8 @@ if ( ! function_exists( 'warsztatqulinarny_woocommerce_cart_link_fragment' ) ) {
 	 * @param array $fragments Fragments to refresh via AJAX.
 	 * @return array Fragments to refresh via AJAX.
 	 */
-	function warsztatqulinarny_woocommerce_cart_link_fragment( $fragments ) {
+	function warsztatqulinarny_woocommerce_cart_link_fragment($fragments)
+	{
 		ob_start();
 		warsztatqulinarny_woocommerce_cart_link();
 		$fragments['a.cart-contents'] = ob_get_clean();
@@ -212,9 +224,9 @@ if ( ! function_exists( 'warsztatqulinarny_woocommerce_cart_link_fragment' ) ) {
 		return $fragments;
 	}
 }
-add_filter( 'woocommerce_add_to_cart_fragments', 'warsztatqulinarny_woocommerce_cart_link_fragment' );
+add_filter('woocommerce_add_to_cart_fragments', 'warsztatqulinarny_woocommerce_cart_link_fragment');
 
-if ( ! function_exists( 'warsztatqulinarny_woocommerce_cart_link' ) ) {
+if (!function_exists('warsztatqulinarny_woocommerce_cart_link')) {
 	/**
 	 * Cart Link.
 	 *
@@ -222,49 +234,66 @@ if ( ! function_exists( 'warsztatqulinarny_woocommerce_cart_link' ) ) {
 	 *
 	 * @return void
 	 */
-	function warsztatqulinarny_woocommerce_cart_link() {
+	function warsztatqulinarny_woocommerce_cart_link()
+	{
 		?>
-		<a class="cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'warsztatqulinarny' ); ?>">
+		<a class="cart-contents" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php esc_attr_e('Zobacz koszyk', 'warsztatqulinarny'); ?>">
 			<?php
 			$item_count_text = sprintf(
 				/* translators: number of items in the mini cart. */
-				_n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'warsztatqulinarny' ),
+				_n('%d', '%d', WC()->cart->get_cart_contents_count(), 'warsztatqulinarny'),
 				WC()->cart->get_cart_contents_count()
 			);
 			?>
-			<span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span> <span class="count"><?php echo esc_html( $item_count_text ); ?></span>
+			<span class="amount"><?php echo wp_kses_data(WC()->cart->get_cart_subtotal()); ?></span> <span class="count"><?php echo esc_html($item_count_text); ?></span>
 		</a>
-		<?php
-	}
+	<?php
+}
 }
 
-if ( ! function_exists( 'warsztatqulinarny_woocommerce_header_cart' ) ) {
+if (!function_exists('warsztatqulinarny_woocommerce_header_cart')) {
 	/**
 	 * Display Header Cart.
 	 *
 	 * @return void
 	 */
-	function warsztatqulinarny_woocommerce_header_cart() {
-		if ( is_cart() ) {
-			$class = 'current-menu-item';
-		} else {
-			$class = '';
-		}
-		?>
-		<ul id="site-header-cart" class="site-header-cart">
-			<li class="<?php echo esc_attr( $class ); ?>">
-				<?php warsztatqulinarny_woocommerce_cart_link(); ?>
-			</li>
-			<li>
-				<?php
-				$instance = array(
-					'title' => '',
-				);
+	function warsztatqulinarny_woocommerce_header_cart()
+	{
+		if (!WC()->cart->is_empty()) {
+			if (is_cart()) {
+				$class = 'current-menu-item';
+			} else {
+				$class = '';
+			}
+			?>
+			<div id="site-header-cart" class="site-header-cart">
+				<i class="fas fa-cart-arrow-down"></i>
+				<div class="cart_hov <?php echo esc_attr($class); ?>">
+					<?php warsztatqulinarny_woocommerce_cart_link(); ?>
+				</div>
+				<div>
+					<?php
+					$instance = array(
+						'title' => '',
+					);
 
-				the_widget( 'WC_Widget_Cart', $instance );
-				?>
-			</li>
-		</ul>
+					the_widget('WC_Widget_Cart', $instance);
+					?>
+				</div>
+			</div>
 		<?php
 	}
 }
+}
+// Hook in
+add_filter('woocommerce_checkout_fields', 'custom_override_checkout_fields');
+
+// Our hooked in function - $fields is passed via the filter!
+function custom_override_checkout_fields($fields)
+{
+	$fields['order']['order_comments']['placeholder'] = 'Jeśli inne niż dane płatności';
+	$fields['order']['order_comments']['label'] = 'Dane uczestnika szkolenia';
+	return $fields;
+}
+
+remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);

@@ -1,3 +1,16 @@
+a {
+	text-decoration: none;
+	color:$c-main;
+}
+a:focus,
+a:visited,
+a:hover,
+a:active {
+	text-decoration: none;
+	color:$c-main;
+}
+
+
 .overf {
 	overflow: hidden;
 	@media (min-width: 1700px) {
@@ -63,20 +76,31 @@
 
 form {
 	width: 100%;
+	font-size:1.4rem;
 	label {
 		width: 100%;
+	}
+	.l50, .l50f{
+		width:45%;
+		float:left;
+	}
+	.l50f{
+		margin-right:10%;
 	}
 	input,
 	textarea {
 		width: 100%;
-		border: 1px solid $c-accent;
-		background: rgba(255, 255, 255, 0.9);
+		background: none;
 		margin-top: 10px;
+		padding:7px;
+		border:none;
+		border-bottom: 1px solid #ccc;
 	}
 	input[type="checkbox"] {
 		width: 30px;
 		height: 15px;
 		border: 4px solid $c-accent;
+		box-shadow: none;
 	}
 	.wpcf7-list-item-label {
 		font-size: 1.2rem;
@@ -139,36 +163,54 @@ form {
 	overflow-y: hidden;
 }
 
-.header{
+.header {
 	width: 100%;
-	background: rgba($c-accent,0.85);
-	padding-top:14px;
-	padding-bottom:14px;
-	position:relative;
+	background: rgba($c-accent, 0.9);
+	padding-top: 14px;
+	padding-bottom: 14px;
+	position: relative;
+	background-image: url(https://www.transparenttextures.com/patterns/noisy-net.png);
+
 }
 
-.header::after{
+.header-center {
+	text-align: center;
+}
+
+.header::after {
 	content: "";
-	width: calc(100% - 10px);
-	height:calc(100% - 10px);
-	left:50%;
-	top:50%;
-	transform:translate(-50%,-50%);
-	background:transparent;
-	border:6px solid #fff;
-	position:absolute;
+	width: calc(100% - 8px);
+	height: calc(100% - 8px);
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background: transparent;
+	border: 3px solid #fff;
+	position: absolute;
 	clip-path: inset(0% 100% 0% 0%);
 	clip-path: inset(0%);
 	transition: clip-path 1s;
+}
 
+.parallax {
+	@include md {
+		position: relative;
+		overflow: hidden;
+	}
+}
+
+.follow {
+	@include md {
+		position: absolute;
+	}
 }
 
 
-.parallax {
-	position: relative;
-	overflow: hidden;
-  }
-  
-  .follow {
-	position: absolute;
-  }
+.opacity-d{
+	opacity:0;
+}
+.opacity-d.loaded{
+	opacity:1;
+	transition:0.5s;
+	transition-delay:0.5s;
+}

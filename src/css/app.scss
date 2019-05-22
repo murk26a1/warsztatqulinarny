@@ -1,14 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
 @import "var";
 @import "mixins";
-@import "buttons";
 @import "elements";
+@import "buttons";
 @import "footer";
 @import "header";
-
-#wpadminbar {
-	display: none;
-}
 
 html {
 	font-size: 62.5%;
@@ -19,17 +15,6 @@ body {
 	font-size: 1.6rem;
 	font-family: $font-main;
 	color: $c-main;
-}
-
-a {
-	text-decoration: none;
-}
-a:focus,
-a:visited,
-a:hover,
-a:active {
-	text-decoration: none;
-	color: inherit;
 }
 
 h1 {
@@ -53,6 +38,12 @@ h3 {
 	font-size: 2.2rem;
 	font-family: $font-sec;
 	color: $c-black;
+}
+
+h4 {
+	font-size: 1.9rem;
+	font-family: $font-sec;
+	color: $c-main;
 }
 
 /*.container{
@@ -137,6 +128,7 @@ section {
 		left: 50%;
 		top: 35%;
 		transform: translate(-50%, 0);
+		z-index: 1;
 		@include md {
 			top: 45%;
 			left: 60%;
@@ -162,12 +154,6 @@ section {
 
 #section-courses {
 	padding-bottom: 40px;
-	.parallax{
-		background:$c-accent;
-		@include md{
-			background:#fff;
-		}
-	}
 	.wrapper {
 		margin-top: 10px;
 		min-height: 300px;
@@ -203,19 +189,53 @@ section {
 			width: 100%;
 			margin-top: 20px;
 			margin-bottom: 20px;
+			.courses-select {
+				width: 100%;
+				text-align: center;
+				margin-bottom: 10px;
+				font-weight: bold;
+				font-size: 1rem;
+				padding: 8px;
+				background: $c-accent2;
+				color: #fff;
+				margin: auto;
+				width: 70%;
+				position: relative;
+				border-radius: 30px;
+				margin-bottom: 30px;
+				text-transform: uppercase;
+				opacity: 0.3;
+				&::after {
+					position: absolute;
+					left: 50%;
+					bottom: -5px;
+					transform: translate(-50%, 0) rotate(45deg);
+					content: "";
+					width: 25px;
+					height: 25px;
+					background: $c-accent2;
+					z-index: -1;
+				}
+			}
 			button {
 				margin-top: 5px;
 				margin-bottom: 5px;
-				font-size: 1.4rem;
+				font-size: 1.5rem;
 				background: #fff;
 				border: 1px dashed $c-accent;
 				color: #111;
-				padding-top: 7px;
-				padding-bottom: 7px;
+				padding-top: 10px;
+				padding-bottom: 10px;
 				margin-right: 35px;
 				font-family: $font-sec;
 				font-weight: bold;
 				text-transform: uppercase;
+				width: 100%;
+				@include md {
+					font-size: 1.4rem;
+					padding-top: 7px;
+					padding-bottom: 7px;
+				}
 				&:disabled {
 					background: $c-accent;
 					color: #fff;
@@ -223,10 +243,10 @@ section {
 			}
 		}
 		.card {
-			margin-top: 30px;
 			border: none;
 			background: none;
 			@include md {
+				margin-top: 30px;
 				padding-left: 50px;
 				border-left: 2px solid #f0f0f0;
 			}
@@ -257,7 +277,6 @@ section {
 						border-radius: 2px;
 						opacity: 0.2;
 						box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.8);
-						transition: opacity 0.7s;
 						z-index: -1;
 					}
 				}
@@ -356,40 +375,61 @@ section {
 }
 
 #section-courses-t {
+	.month {
+		margin-top: 60px;
+		text-align: center;
+		font-size: 2.6rem;
+		color: #999;
+		display: flex;
+		justify-content: center;
+	}
 	.section-head {
 		@include md {
 			text-align: center;
 		}
 	}
 	.wrapper {
-		border: 1px solid $c-accent;
-		margin-top: 40px;
+		margin-top: 30px;
 		position: relative;
+		background: rgba(255, 255, 255, 0.7);
+		box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 		@include md {
-			margin-top: 60px;
+			margin: auto;
+			margin-top: 30px;
+			width: 85%;
 		}
 		.course-img {
 			background-repeat: no-repeat;
 			background-size: cover;
+			background-position: center;
 			width: 100%;
 			height: 230px;
+			border: 15px solid #fff;
 			@include md {
-				height: 180px;
+				height: 125px;
 			}
 		}
 		p,
 		h3 {
 			@include md {
-				margin-left: 100px;
+				margin-left: 50px;
 			}
 		}
 		p {
 			padding-top: 5px;
+			font-size: 1.4rem;
+			span {
+				font-weight: bold;
+				display: block;
+				@include md {
+					display: inline-block;
+				}
+			}
 		}
 		h3 {
-			padding-top: 20px;
+			padding-top: 30px;
 			@include md {
-				padding-top: 30px;
+				padding-top: 15px;
 			}
 		}
 		.info {
@@ -398,14 +438,11 @@ section {
 			color: #fff;
 			font-size: 2rem;
 			padding: 7px 25px 7px 25px;
+			box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.4);
 		}
 		.price {
 			top: 0;
-			right: 0;
-			@include md {
-				right: auto;
-				left: 0;
-			}
+			left: 0;
 		}
 		.date {
 			top: 200px;
@@ -430,6 +467,14 @@ section {
 				bottom: -15px;
 				left: 50%;
 			}
+		}
+	}
+	.double-btn-col {
+		margin-top: 15px;
+		font-size: 1.4rem;
+		.m-btn {
+			padding: 6px 42px 6px 42px;
+			height: 30px;
 		}
 	}
 }
@@ -511,14 +556,6 @@ section {
 		width: 100%;
 		object-fit: cover;
 		object-position: center;
-	}
-	.overlay {
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		background: rgba(0, 0, 0, 0.6);
 	}
 }
 
@@ -631,6 +668,10 @@ section {
 	}
 	.wrapper-text {
 		margin: 0;
+		@include xxl {
+			margin-right: 20%;
+			max-width: 80%;
+		}
 	}
 	.wrapper {
 		background: #000;
@@ -638,8 +679,573 @@ section {
 		height: auto;
 		padding: 50px;
 		position: static;
+		h3 {
+			color: #fff;
+			font-size: 2.6rem;
+			@include md {
+				display: none;
+			}
+		}
 		p {
 			padding: 0;
 		}
 	}
+	i {
+		margin-right: 10px;
+		font-size: 2rem;
+	}
 }
+
+#section-banner-page {
+	height: 600px;
+	position: relative;
+	background-color: $c-accent2;
+	background-image: url(https://www.transparenttextures.com/patterns/cross-stripes.png);
+	.img-wrap {
+		position: absolute;
+		width: 95%;
+		height: auto;
+		left: 50%;
+		top: 15%;
+		transform: translate(-50%, 0);
+		@include md {
+			transform: translate(0%, 0);
+			width: 50%;
+			left: auto;
+			right: 8%;
+			top: 25%;
+		}
+		img {
+			width: 100%;
+			height: 500px;
+			object-fit: cover;
+			border-radius: 2px;
+			box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.8);
+		}
+	}
+	.header {
+		position: absolute;
+		height: auto;
+		width: 90%;
+		margin: auto;
+		top: 60%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+		padding: 25px;
+		padding-left: 30px;
+		padding-right: 30px;
+		@include md {
+			top: 70%;
+			left: 30%;
+			width: auto;
+			padding-left: 50px;
+			padding-right: 50px;
+		}
+	}
+	h1 {
+		font-size: 4rem;
+		color: #fff;
+		@include md {
+			font-size: 5rem;
+		}
+	}
+	h4 {
+		position: absolute;
+		bottom: 20%;
+		left: 30%;
+		font-size: 1.4rem;
+		text-transform: uppercase;
+		transform: translate(-50%, -50%);
+		color: #fff;
+		@include md {
+			bottom: 10%;
+		}
+	}
+}
+
+.article-blog {
+	text-align: left;
+	padding: 15px;
+	background: #fbfbfb;
+	.cat-links {
+		float: right;
+	}
+	h1,
+	h2 {
+		font-size: 3.6rem;
+		a,
+		a:hover,
+		a:focus,
+		a:visited {
+			color: $c-black;
+		}
+	}
+	.entry-header {
+		position: relative;
+		padding: 5px;
+		padding-top: 10px;
+		@include md {
+			padding: 20px;
+			padding-top: 10px;
+		}
+		h1,
+		h2 {
+			padding-top: 10px;
+		}
+		.entry-meta {
+			position: absolute;
+			width: 100%;
+			left: 0;
+			height: 30px;
+			top: -30px;
+			background: rgba(255, 255, 255, 0.8);
+			padding: 7px;
+			padding-left: 20px;
+			padding-right: 20px;
+			font-size: 1.2rem;
+			a {
+				color: #000;
+			}
+		}
+	}
+	.entry-content {
+		padding: 20px;
+		padding-top: 0;
+	}
+	.thumbnail {
+		.post-thumbnail {
+			img {
+				width: 100%;
+				height: auto;
+				max-height: 500px;
+				object-fit: cover;
+			}
+		}
+	}
+	.single-btn {
+		margin-top: 30px;
+		margin-right: 0;
+	}
+	.m-btn,
+	.m-btn:hover,
+	.m-btn:visited,
+	.m-btn:focus {
+		color: #fff;
+	}
+}
+
+aside {
+	margin-top: 50px;
+	@include md {
+		margin-top: 0;
+	}
+	color: #aaa;
+	section {
+		padding: 0;
+		margin-bottom: 20px;
+		h2 {
+			color: $c-main;
+			font-size: 2rem;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			color: #444;
+		}
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+	}
+	.widget_search {
+		.search-field {
+			padding: 10px;
+			border: 3px solid #eee;
+		}
+		.search-submit {
+			border: 1px solid #eee;
+			padding: 5px;
+			color: #555;
+		}
+	}
+	.widget_categories {
+		form {
+			select {
+				width: 100%;
+				font-size: 1.4rem;
+				padding: 10px;
+				font-weight: bold;
+				border: 1px solid #eee;
+				color: #555;
+				option:nth-child(1) {
+					font-weight: bold;
+				}
+			}
+		}
+	}
+	.widget_recent_entries {
+		display: none;
+		@include xxl {
+			display: block;
+		}
+	}
+}
+
+#section-course-info {
+	.wrapper {
+		@include md {
+			box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.03);
+			padding: 50px;
+		}
+	}
+	.text {
+		margin-top: 40px;
+		padding: 5px;
+		text-align: left;
+		@include md {
+			padding: 25px;
+			background: rgba(255, 255, 255, 0.7);
+		}
+	}
+	.img-wrap {
+		display: block;
+		height: 100%;
+		position: relative;
+		img {
+			position: absolute;
+			top: 3%;
+			left: -50%;
+			width: 150%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 2px;
+			opacity: 0.2;
+			box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.8);
+			z-index: -1;
+		}
+	}
+}
+
+#section-course-slider {
+	padding-top: 0;
+	.swiper-container {
+		width: 100%;
+		padding-top: 50px;
+		padding-bottom: 150px;
+		.swiper-slide {
+			background-position: center;
+			background-size: cover;
+			width: 300px;
+			height: 200px;
+			box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+			border-radius:3px;
+			@include md {
+				width: 30vw;
+				height: 20vw;
+			}
+		}
+		.swiper-pagination {
+			.swiper-pagination-bullet {
+				margin: 0 10px;
+			}
+			.swiper-pagination-bullet{
+				background: #555;
+			}
+		}
+	}
+}
+
+#section-full-img {
+	padding-top: 0;
+	padding-bottom: 0;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	.box {
+		height: 350px;
+		width: 90%;
+		margin: auto;
+		background: rgba($c-accent2, 0.95);
+		color: #fff;
+		margin-top: 40px;
+		margin-bottom: 40px;
+		text-align: left;
+		position: relative;
+		@include md {
+			margin-top: 100px;
+			margin-bottom: 100px;
+		}
+		.wrapper {
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			padding: 30px;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			span {
+				margin-top: 5px;
+				margin-bottom: 5px;
+			}
+			h3 {
+				color: #fff;
+				font-size: 2.2rem;
+				margin-bottom: 30px;
+				text-decoration: underline;
+			}
+			p {
+				width: 100%;
+			}
+		}
+	}
+}
+
+#section-course-program {
+	.header {
+		margin-top: 40px;
+		@include md {
+			margin-top: 0;
+		}
+	}
+	@include md {
+		.sm-col {
+			padding-left: 40px;
+			padding-right: 40px;
+			box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.03);
+			padding-top: 40px;
+			padding-bottom: 40px;
+		}
+		.svg-knives {
+			width: 70px;
+			margin-left: 20px;
+		}
+	}
+	h2 {
+		font-size: 3.1rem;
+	}
+	.program,
+	.menu {
+		text-align: left;
+		margin-top: 30px;
+		margin-left: 30px;
+		margin-right: 30px;
+
+		span {
+			font-weight: bold;
+		}
+		ul {
+			margin-top: 5px;
+			list-style: square;
+			margin-bottom: 20px;
+		}
+	}
+	.menu {
+		ul {
+			@include md {
+				margin-top: 55px;
+			}
+		}
+	}
+}
+
+#section-course-info2 {
+	.info {
+		margin-top: 40px;
+	}
+}
+
+#section-about-me2 {
+	p {
+		background-color: $c-accent2;
+		background-image: url(https://www.transparenttextures.com/patterns/cross-stripes.png);
+		color: #fbfbfb;
+		padding: 25px;
+	}
+	.margin {
+		margin-top: 80px;
+	}
+	.margin2 {
+		margin-top: 120px;
+	}
+	h2 {
+		color: $c-accent2;
+	}
+	.about-me {
+		margin-top: 100px;
+		.img-wrap {
+			height: 100%;
+			margin-top: -50px;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+}
+
+#section-cert {
+	padding-top: 0;
+	.wrapper {
+		padding: 50px;
+		@include md {
+			padding: 10px;
+		}
+	}
+	.cert {
+		margin-top: 50px;
+		img {
+			width: 100%;
+			object-fit: cover;
+			object-position: top;
+			height: auto;
+			@include md {
+				height: 250px;
+				transition: object-position 2s;
+				&:hover {
+					object-position: bottom;
+				}
+			}
+		}
+	}
+}
+
+#section-main-contact {
+	.bg {
+		background: $c-accent2;
+		background-image: url(https://www.transparenttextures.com/patterns/cross-stripes.png);
+		color: #fff;
+		@include md {
+			margin-left: -15px;
+			margin-right: 15px;
+		}
+	}
+	h2 {
+		padding: 30px;
+		padding-bottom: 0;
+		text-decoration: underline;
+	}
+	h3,
+	h2,
+	a {
+		color: #fff;
+	}
+	h3 {
+		margin-top: 50px;
+	}
+	.wrapper {
+		margin-top: 10px;
+		padding: 30px;
+		padding-top: 0;
+	}
+	.form {
+		background: #f4f4f4;
+		h2 {
+			color: $c-accent2;
+		}
+	}
+}
+
+#section-map {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+#section-faq {
+	.faq-header {
+		color: $c-black;
+		font-size: 3.4rem;
+	}
+	#faq {
+		margin-top: 40px;
+		.card {
+			.card-header {
+				padding-top: 10px;
+				padding-bottom: 10px;
+				background: $c-accent2;
+				transition: background 0.3s;
+				@include md {
+					padding-top: 15px;
+					padding-bottom: 15px;
+				}
+				&:hover {
+					background: $c-accent;
+				}
+				h2 {
+					width: 100%;
+					height: 100%;
+					display: block;
+					margin: 0;
+					.btn {
+						color: #fff;
+						font-size: 1.4rem;
+						font-weight: bold;
+						width: 100%;
+						height: 100%;
+						display: block;
+						text-align: left;
+						text-decoration: none;
+					}
+					.btn.disabled,
+					.btn:disabled {
+						opacity: 1;
+					}
+				}
+			}
+			.card-header-active {
+				background: $c-accent;
+			}
+		}
+	}
+}
+
+#section-gallery-full {
+	padding: 0;
+	.container-fluid {
+		padding: 0;
+	}
+	.gallery-row {
+		.big {
+			overflow: hidden;
+			img {
+				height: 94vh;
+			}
+		}
+		.small {
+			.s-img {
+				overflow: hidden;
+				width: 50%;
+				@include md {
+					width: 100%;
+				}
+			}
+			img {
+				height: 47vh;
+			}
+		}
+	}
+	img {
+		width: 100%;
+		object-fit: cover;
+		transition: transform 0.5s, opacity 1s;
+		transition-timing-function: linear;
+		&:hover {
+			transform: scale(1.1);
+			transition: transform 3.5s;
+			transition-timing-function: linear;
+		}
+	}
+	.double-img {
+		display: flex;
+		flex-direction: row;
+		@include md {
+			flex-direction: column;
+		}
+	}
+}
+
+@import "woocommerce";

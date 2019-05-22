@@ -1,6 +1,6 @@
 .m-btn {
 	background: $c-accent;
-	color: #fff;
+	color: #fff !important;
 	padding: 8px 45px 8px 45px;
 	position: relative;
 	border-radius: 5px;
@@ -38,7 +38,7 @@
 
 .m-btn-w {
 	background: #fff;
-	color: $c-black;
+	color: $c-black !important;
 	border: 1px solid $c-accent;
 	&:hover {
 		color: $c-black;
@@ -93,6 +93,8 @@
 .double-btn-col {
 	display: flex;
 	flex-direction: column;
+	position: relative;
+	z-index: 1;
 	@include md {
 		align-items: center;
 		justify-content: space-evenly;
