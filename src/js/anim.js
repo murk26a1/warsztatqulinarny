@@ -5,7 +5,21 @@ import anime from 'animejs';
 
 
 
+// ************ Height change detect
+function onElementHeightChange(elm, callback) {
+    var lastHeight = elm.clientHeight, newHeight;
+    (function run() {
+        newHeight = elm.clientHeight;
+        if (lastHeight != newHeight)
+            callback();
+        lastHeight = newHeight;
 
+        if (elm.onElementHeightChangeTimer)
+            clearTimeout(elm.onElementHeightChangeTimer);
+
+        elm.onElementHeightChangeTimer = setTimeout(run, 200);
+    })();
+}
 
 
 
@@ -81,8 +95,9 @@ Waypoint.Inview.prototype.createWaypoints = function () {
 
 
 
+//home
 
-
+/*
 if (document.getElementById('section-about')) {
 
     $('#section-about .wrapper').addClass('anim-left');
@@ -114,3 +129,220 @@ if (document.getElementById('section-about')) {
     })
 
 };
+
+*/
+
+
+if (document.getElementById('section-about')) {
+
+    $('#section-about .wrapper').addClass('fadeInUp');
+    $('#section-about .photos').addClass('fadeInUp');
+
+    var waypoint = new Waypoint.Inview({
+        element: document.getElementById('section-about'),
+        enter: function () {
+            $('#section-about .wrapper').addClass('fadeInUp-a');
+            $('#section-about .photos').addClass('fadeInUp-a');
+        },
+        exited: function () {
+            // $('#section-about .wrapper').removeClass('fadeInUp-a');
+            //  $('#section-about .photos').removeClass('fadeInUp-a');
+        },
+        offset: {
+            top: 400,
+            bottom: 400
+        }
+    })
+
+};
+
+if (document.getElementById('section-courses')) {
+
+    $('#section-courses .card-body').addClass('fadeInUp');
+
+    var waypoint = new Waypoint.Inview({
+        element: document.getElementById('section-courses'),
+        enter: function () {
+            $('#section-courses .card-body').addClass('fadeInUp-a');
+        },
+        exited: function () {
+            //  $('#section-courses .card-body').removeClass('fadeInUp-a');
+        },
+        offset: {
+            top: 400,
+            bottom: 400
+        }
+    })
+
+};
+
+if (document.getElementById('section-course-info')) {
+
+    $('#section-course-info').addClass('fadeInUp');
+
+    var waypoint = new Waypoint.Inview({
+        element: document.getElementById('section-course-info'),
+        enter: function () {
+            $('#section-course-info').addClass('fadeInUp-a');
+        },
+        exited: function () {
+            //  $('#section-courses .card-body').removeClass('fadeInUp-a');
+        },
+        offset: {
+            top: 400,
+            bottom: 400
+        }
+    })
+
+};
+
+if (document.getElementById('section-course-program')) {
+
+    $('#section-course-program .row').addClass('fadeInUp');
+
+    var waypoint = new Waypoint.Inview({
+        element: document.getElementById('section-course-program'),
+        enter: function () {
+            $('#section-course-program .row').addClass('fadeInUp-a');
+            
+        },
+        exited: function () {
+            //  $('#section-courses .card-body').removeClass('fadeInUp-a');
+        },
+        offset: {
+            top: 400,
+            bottom: 400
+        }
+    })
+
+};
+
+if (document.getElementById('section-courses-t')) {
+
+    $('#section-courses-t .wrapper').addClass('fadeInUp');
+    let el = document.getElementById('section-courses-t').getElementsByClassName('wrapper');
+    for (let i = 0; i < el.length; i++) {
+
+
+
+
+        var waypoint = new Waypoint.Inview({
+            element: el[i],
+            enter: function () {
+                $(el[i]).addClass('fadeInUp-a');
+            },
+            exited: function () {
+                //  $('#section-courses-t .wrapper').removeClass('fadeInUp-a');
+            },
+            offset: {
+                top: 200,
+                bottom: 200
+            }
+        })
+
+    }
+
+};
+
+if (document.getElementsByClassName('header')) {
+
+    $('.header').addClass('anim-clip');
+    let el = document.getElementsByClassName('header');
+    for (let i = 0; i < el.length; i++) {
+
+
+
+
+        var waypoint = new Waypoint.Inview({
+            element: el[i],
+            enter: function () {
+                $(el[i]).addClass('anim-clip-a');
+            },
+            exited: function () {
+                //  $('#section-courses-t .wrapper').removeClass('fadeInUp-a');
+            },
+            offset: {
+                top: 200,
+                bottom: 200
+            }
+        })
+
+    }
+
+};
+
+if (document.getElementById('section-black-bg')) {
+
+    $('#section-black-bg .offset-md-6').addClass('fadeInUp');
+
+    var waypoint = new Waypoint.Inview({
+        element: document.getElementById('section-black-bg'),
+        enter: function () {
+            $('#section-black-bg .offset-md-6').addClass('fadeInUp-a');
+        },
+        offset: {
+            top: 400,
+            bottom: 400
+        }
+    })
+
+};
+
+if (document.getElementById('section-faq')) {
+    $('#section-faq .card').addClass('fadeInUp');
+    let el = document.getElementById('section-faq').getElementsByClassName('card');
+    for (let i = 0; i < el.length; i++) {
+
+
+
+
+        var waypoint = new Waypoint.Inview({
+            element: el[i],
+            enter: function () {
+                $(el[i]).addClass('fadeInUp-a');
+            },
+            exited: function () {
+                //  $('#section-courses-t .wrapper').removeClass('fadeInUp-a');
+            },
+            offset: {
+                top: 200,
+                bottom: 200
+            }
+        })
+
+    }
+
+};
+
+if (document.getElementById('section-cert')) {
+
+    $('#section-cert .cert').addClass('fadeInUp');
+    let el = document.getElementById('section-cert').getElementsByClassName('cert');
+    for (let i = 0; i < el.length; i++) {
+
+
+
+
+        var waypoint = new Waypoint.Inview({
+            element: el[i],
+            enter: function () {
+                $(el[i]).addClass('fadeInUp-a');
+            },
+            exited: function () {
+                //  $('#section-courses-t .wrapper').removeClass('fadeInUp-a');
+            },
+            offset: {
+                top: 200,
+                bottom: 200
+            }
+        })
+
+    }
+
+};
+
+
+
+onElementHeightChange(document.body, function () {
+    Waypoint.refreshAll();
+});

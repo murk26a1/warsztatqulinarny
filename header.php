@@ -21,7 +21,48 @@
     <?php wp_head(); ?>
 </head>
 
+<style>
+body{
+    overflow:hidden;
+}
+
+    #preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  /* change if the mask should have another color then white */
+  z-index: 99;
+  /* makes sure it stays on top */
+}
+
+#status {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  /* centers the loading animation horizontally one the screen */
+  top: 50%;
+  /* centers the loading animation vertically one the screen */
+  background-image: url('<?php echo get_theme_file_uri(); ?>/img/preloader2.svg');
+  /* path to your loading animation */
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: -100px 0 0 -100px;
+  /* is width and height divided by two */
+}
+
+</style>
+
 <body <?php body_class(); ?>>
+
+<div id="preloader">
+  <div id="status">&nbsp;</div>
+</div>
+
+
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v3.3"></script>
 
@@ -34,7 +75,7 @@
             <ul>
                 <li class="menu_li"><a href="<?php echo site_url(); ?>">Home</a></li>
                 <li class="menu_szkolenia">
-                    <a class="menu_szkolenia_link" href="<?php echo site_url(); ?>/szkolenia">Szkolenia</a>
+                    <a class="menu_szkolenia_link" href="<?php echo site_url(); ?>/szkolenia">Szkolenia</a><i class="fas fa-caret-down"></i>
                     <ul>
                         <?php
                         $szkolenia = new WP_Query(array(

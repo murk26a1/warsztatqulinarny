@@ -6,9 +6,6 @@
 ?>
 
 
-
-
-
 <section id="section-banner-page">
 	<div class="img-wrap">
 		<?php echo get_the_post_thumbnail($post_id, 'large'); ?>

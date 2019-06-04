@@ -115,3 +115,13 @@ background-image: url("https://www.transparenttextures.com/patterns/low-contrast
         margin-bottom:10px;
     }
 }
+.woocommerce-product-details__short-description{
+    border: 1px solid #ddd;
+    padding: 7px;
+    margin-bottom: 15px;
+    p{
+        font-size: 1.4rem;
+        padding: 0;
+        margin: 0;
+    }
+}

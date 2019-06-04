@@ -12,22 +12,8 @@ get_header();
 <main>
 
 
-<?php
-if (wp_is_mobile()) {
-	$img = get_theme_file_uri() . "/img/banner_m.jpg";
-} else {
-	$img = get_theme_file_uri() . "/img/banner.jpg";
-}
-?>
+<?php get_template_part('template-parts/blog-page', get_post_type()); ?>
 
-<section id="section-banner-page" style="background-image: url('<?php echo $img; ?>');">
-
-	<div class="header">
-		<h1> Blog
-		</h1>
-	</div>
-
-</section>
 <section>
 	<div class="container">
 		<div class="row">

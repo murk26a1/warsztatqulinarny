@@ -1,7 +1,10 @@
 import 'bootstrap';
 
-// ************ Hide Header on on scroll down
-
+$(window).on('load', function() { // makes sure the whole site is loaded 
+    $('#status').fadeOut(); // will first fade out the loading animation 
+    $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+    $('body').delay(350).css({'overflow':'visible'});
+  })
 
 
 // ************ Resize detect
@@ -9,10 +12,13 @@ var resizeTimer;
 const menu_szkolenia_link = document.querySelector('.menu_szkolenia_link');
 var url_szkolenia = menu_szkolenia_link.href;
 var screen = $(window);
+screen_check();
 $(window).resize(function () {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(screen_check, 100);
 });
+
+
 
 
 function screen_check() {
@@ -140,6 +146,7 @@ menu_szkolenia.addEventListener('click', function () {
 menu_szkolenia.addEventListener('mouseover', function () {
     if (screen.width() >= 1200) {
         menu_szkolenia_ul.classList.add('szkolenia-active');
+        console.log("tak");
     }
 }, false);
 

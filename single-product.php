@@ -24,12 +24,6 @@ get_header('shop'); ?>
 
 
 
-<style>
-	body{
-		background:#f0f0f0;
-	}
-</style>
-
 
 
 

@@ -61,18 +61,16 @@ get_header();
 
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/1)"></div>
-					<div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/2)"></div>
-					<div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/3)">
-				<a href="#">asdf</a>
-				</div>
-					<div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/4)"></div>
-					<div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/5)"></div>
-					<div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/6)"></div>
-					<div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/7)"></div>
-					<div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/8)"></div>
-					<div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/9)"></div>
-					<div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/10)"></div>
+					<?php if (have_rows('zdjecia')) :
+						while (have_rows('zdjecia')) : the_row();
+							?>
+							<div class="swiper-slide">
+								<?php $url = wp_get_attachment_url(get_sub_field('zdjecie')); ?>
+								<a href="<?php echo $url; ?>" data-lightbox="zdjecie"><img class="lazy opacity-d" <?php img_resp(get_sub_field('zdjecie'), 'xl', '1366px'); ?> alt="text" /></a>
+							</div>
+						<?php
+					endwhile;
+				endif; ?>
 				</div>
 
 				<div class="swiper-pagination"></div>
@@ -116,7 +114,7 @@ get_header();
 		</section>
 		<section id="section-course-program">
 			<div class="container">
-				<div class="row">
+				<div class="row" style="background-image: url(https://www.transparenttextures.com/patterns/clean-textile.png);">
 					<div class="col-12 col-md-6 sm-col">
 						<div class="header">
 							<svg class="svg-knives" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 81.899 45.974">
@@ -164,14 +162,22 @@ get_header();
 							<h2>Przykładowe menu</h2>
 						</div>
 						<div class="menu">
-							<ul>
-								<?php if (have_rows('menu')) :
-									while (have_rows('menu')) : the_row(); ?>
-										<li><?php the_sub_field('pozycja'); ?></li>
-									<?php
-								endwhile;
-							endif; ?>
-							</ul>
+						<?php if (have_rows('menu')) :
+								while (have_rows('menu')) : the_row();
+									?>
+									<span><?php the_sub_field('naglowek_menu'); ?></span>
+									<ul>
+										<?php if (have_rows('lista_menu')) :
+											while (have_rows('lista_menu')) : the_row();
+												?>
+												<li><?php the_sub_field('pozycja_menu'); ?></li>
+											<?php
+										endwhile;
+									endif; ?>
+									</ul>
+								<?php
+							endwhile;
+						endif; ?>
 						</div>
 					</div>
 				</div>
@@ -203,7 +209,9 @@ get_header();
 						</div>
 						<div class="row info">
 							<div class='col-12'>
-								<?php the_field('sekcja_informacje_dodatkowe_tekst'); ?>
+								<div class="wrapper">
+									<?php the_field('sekcja_informacje_dodatkowe_tekst'); ?>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -321,8 +329,7 @@ get_header();
 
 								<div class="col-12 col-md-3">
 									<div class="double-btn-col">
-										<a href="<?php echo $link; ?>" class="m-btn m-btn-w">o szkoleniu</a>
-										<a href="<?php echo get_permalink($product->get_id()); ?>" class="m-btn">zapisz się</a>
+										<a href="<?php echo get_permalink($product->get_id()); ?>" class="m-btn" style="padding: 6px 42px 6px 42px; height: 38px; font-weight: bold; font-size: 1.7rem;">zapisz się</a>
 									</div>
 								</div>
 								<div class="info price">
@@ -356,7 +363,7 @@ get_header();
 		slidesPerView: 'auto',
 		loop: true,
 		speed: 1000,
-		autoplay:{
+		autoplay: {
 			delay: 4000,
 		},
 		coverflowEffect: {
@@ -371,7 +378,12 @@ get_header();
 		},
 	});
 </script>
-
+<script>
+	lightbox.option({
+		showImageNumberLabel: false,
+		disableScrolling: true
+	})
+</script>
 
 <?php
 get_footer();

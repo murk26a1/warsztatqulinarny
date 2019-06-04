@@ -297,3 +297,22 @@ function custom_override_checkout_fields($fields)
 }
 
 remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
+
+
+add_filter( 'woocommerce_get_availability', 'wcs_custom_get_availability', 1, 2);
+function wcs_custom_get_availability( $availability, $_product ) {
+   global $product;
+ 
+   // Change In Stock Text
+    if ( $_product->is_in_stock() ) {
+		$stock = $product->get_stock_quantity();
+        $availability['availability'] = __('Dostępne miejsca: <span style="font-weight:bold; color:#333">' . $stock . '</span>', 'woocommerce');
+    }
+ 
+    // Change Out of Stock Text
+    if ( ! $_product->is_in_stock() ) {
+    	$availability['availability'] = __('Brak miejsc: <a href="https://warsztatqulinarny.pl/kontakt">Zapis na listę rezerwową</a>', 'woocommerce');
+    }
+ 
+    return $availability;
+}

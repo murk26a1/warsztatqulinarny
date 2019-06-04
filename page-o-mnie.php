@@ -22,56 +22,23 @@ get_header();
 				<div class="row">
 					<div class="col-12 col-md-6">
 						<h2>O firmie</h2>
-						<p>Warsztat Qulinarny powstał w wyniku połączenia miłości do gotowania, ciągłej chęci
-							zgłębiania meandrów gastronomii oraz nieodpartej potrzeby dzielenia się posiadaną przeze
-							mnie wiedzą z innymi ludźmi.
-							Inspiracją do jego założenia stały się sugestie znajomych, których pytania o rady dotyczące
-							gotowania stały się dla mnie niemalże codziennością. Ich udzielanie okazało się dostarczać
-							wiele radości, zaś wyniki – satysfakcji.
-							Czy uczeń może przerosnąć mistrza? Warto sprawdzić :)</p>
+						<?php the_field('o_firmie'); ?>
 					</div>
 					<div class="col-12 col-md-6 margin2">
 						<h2>Misja</h2>
-						<p>Misją Warsztatu Qulinarnego jest przekazywanie szeroko pojętej wiedzy kulinarnej popartej
-							20-letnim doświadczeniem w pracy zawodowej oraz pokazanie, że gotowanie to nie tylko
-							prawdziwa sztuka, ale i zabawa. Dwie dekady to okres, który pozwolił mi zgłebić
-							tajniki kuchni z różnych zakątków świata, techniki przygotowywania i serowania dań, a także
-							praktyczne możliwości łączenia tej wiedzy z pokrewnymi dziedzinami, takimi jak sommelierstwo,
-							baristyka, kelnerstwo czy carving.</p>
+						<?php the_field('misja'); ?>
 					</div>
 				</div>
 				<div class="row about-me">
 					<div class="col-12 col-md-6">
-						<?php
-						if (wp_is_mobile()) {
-							$img = get_theme_file_uri() . "/img/ph-course.jpg";
-						} else {
-							$img = get_theme_file_uri() . "/img/ph-course.jpg";
-						}
-						?>
 						<div class="img-wrap">
-							<img src="<?php echo $img; ?>" />
+							<img class="lazy opacity-d" <?php img_resp(get_field('zdjecie'), 'medium', '650px'); ?> alt="text" />
 						</div>
 
 					</div>
 					<div class="col-12 col-md-6">
 						<h2>O mnie</h2>
-						<p>Paweł Wojtyga
-							Kucharz, szef kuchni, szkoleniowiec, sędzia konkursów kulinarnych, założyciel Warsztatu
-							Qulinarnego.
-							Do szkoły gastronomicznej zostałem pchnięty niespełnionymi marzeniami ojca, szybko też
-							okazało się , że w branży gastronomicznej odnajduję się doskonale.
-							Doświadczenie zawodowe zdobywałem, gotując w wielu renomowanych restauracjach
-							krakowskich jak: La Fontaine i Szara na krakowskim Rynku. Szlify kucharskie zdobywałem
-							także w Skandynawskich restauracjach: Quality Hotel Ekoxen w Linköping i Messa w
-							Åtvidaberg. Po powrocie pracowałem jako kucharz zmianowy, później sous chef w 5
-							gwiazdkowym hotelu Piast w Krakowie. Po kilku latach zostałem szefem kuchni w restauracji
-							Zielona Kuchnia; następnym krokiem była pomoc w stworzeniu od postaw restauracji "Galicja
-							po kolei" i objęcie tam stanowiska szefa kuchni. Ostatnie kilka lat spędziłem jako szef
-							kuchni i szkoleniowiec w jednej z najlepszych szkół restauracyjnych w Krakowie.
-							W moim przekazywaniu wiedzy nie brakuje szczypty humoru, znajdziecie w nim ogrom
-							cierpliwości i profesjonalizmu, a gotowanie - zamiast wyzwaniem - będzie dla Was świetną
-							zabawą :)</p>
+						<?php the_field('o_mnie'); ?>
 					</div>
 				</div>
 			</div>
@@ -104,7 +71,7 @@ get_header();
 
 							<div class="col-12 col-md-4 cert">
 								<?php $url = wp_get_attachment_url(get_sub_field('certyfikat')); ?>
-								<a href="<?php echo $url; ?>" data-lightbox="certyfikaty" ><img <?php img_resp(get_sub_field('certyfikat'), 'medium', '600px'); ?> alt="certyfikat" /></a>
+								<a href="<?php echo $url; ?>" data-lightbox="certyfikaty" ><img class="lazy" <?php img_resp(get_sub_field('certyfikat'), 'medium', '600px'); ?> alt="certyfikat" /></a>
 							</div>
 
 						<?php
@@ -121,6 +88,13 @@ get_header();
 	<?php } ?>
 
 </main>
+
+<script>
+    lightbox.option({
+		showImageNumberLabel: false,
+	  disableScrolling: true
+    })
+</script>
 
 <?php
 get_footer();

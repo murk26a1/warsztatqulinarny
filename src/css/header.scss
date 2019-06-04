@@ -81,12 +81,26 @@
 			}
 		}
 		.menu_szkolenia {
+			.fa-caret-down {
+				display:none;
+				@include lg {
+					margin-left: 5px;
+					display:inline-block;
+				}
+			}
 			ul {
 				position: absolute;
 				left: 50%;
 				padding: 0;
 				margin: 0;
 				display: none;
+				@include lg {
+					display: block;
+					opacity: 0;
+					width: 0;
+					height: 0;
+					top: -200px;
+				}
 				li {
 					img {
 						display: none;
@@ -111,6 +125,8 @@
 					left: 0;
 					width: 100%;
 					text-align: left;
+					opacity: 1;
+					transition: opacity 0.5s;
 					li {
 						display: block;
 						padding: 0;
@@ -177,12 +193,12 @@
 					}
 					.count {
 						position: absolute;
-						left:51%;
+						left: 51%;
 						bottom: 4px;
-						transform:translate(-50%,0);
+						transform: translate(-50%, 0);
 						@include md {
-							left:unset;
-							transform:translate(0,0);
+							left: unset;
+							transform: translate(0, 0);
 							right: 15px;
 						}
 					}
@@ -227,7 +243,7 @@
 			width: 200px;
 			align-items: center;
 			margin-left: 30px;
-			margin-right:50px;
+			margin-right: 50px;
 		}
 	}
 

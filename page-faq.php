@@ -45,7 +45,7 @@ get_header();
 									$i++;
 									?>
 
-									<div class="card">
+									<div class="card <?php if ($i % 2 == 0) { ?> card-light <?php } ?> ">
 										<div class="card-header" id="heading-<?php echo $i ?>">
 											<h2>
 												<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#card-<?php echo $i ?>" aria-expanded="false" aria-controls="card-<?php echo $i ?>">
