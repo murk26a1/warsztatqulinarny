@@ -13,7 +13,8 @@
 			<?php
 			$szkolenia = new WP_Query(array(
 				'posts_per_page' => -1,
-				'post_type' => 'szkolenia'
+				'post_type' => 'szkolenia',
+				'order' => 'asc'
 			));
 			while ($szkolenia->have_posts()) : $szkolenia->the_post(); ?>
 				<button class="btn btn-primary btn-course" data-toggle="collapse" href="#course-<?php echo get_the_id(); ?>" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><?php the_title(); ?></button>
@@ -25,7 +26,8 @@
 		<?php
 		$szkolenia = new WP_Query(array(
 			'posts_per_page' => -1,
-			'post_type' => 'szkolenia'
+			'post_type' => 'szkolenia',
+			'order' => 'asc'
 		));
 		$i = 0;
 		while ($szkolenia->have_posts()) : $szkolenia->the_post();

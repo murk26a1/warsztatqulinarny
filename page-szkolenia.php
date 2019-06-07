@@ -101,12 +101,13 @@ get_header();
 								<div class="row month">
 									<span><?php echo $month; ?></span>
 								</div>
-								
+
 							<?php }
 						?>
 							<div class="row wrapper">
 								<div class="col-5 col-md-3 col-no-padding">
-									<div class="course-img" style="background-image: url('<?php echo get_theme_file_uri(); ?>/img/ph-courses.png');">
+									<div class="course-img">
+										<?php the_post_thumbnail('medium'); ?>
 									</div>
 								</div>
 								<div class="col-7 col-md-6">

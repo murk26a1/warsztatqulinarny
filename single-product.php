@@ -49,8 +49,24 @@ do_action('woocommerce_before_main_content');
 				<?php wc_get_template_part('content', 'single-product'); ?>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-12">
+				<?php
+				//get cat link
+				global $post;
+				$link = '';
+				$terms = get_the_terms($post->ID, 'product_cat');
+				if (!empty($terms[0])) {
+					$link = get_term_link($terms[0]->term_id, 'product_cat');
+				}
+
+				?>
+				<a href="<?php echo $link; ?>" class="m-btn">szczegółowy opis kursu</a>
+
+			</div>
+		</div>
 	</div>
-<?php endwhile; 
+<?php endwhile;
 ?>
 
 

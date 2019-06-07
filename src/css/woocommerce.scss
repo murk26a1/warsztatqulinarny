@@ -1,6 +1,6 @@
 .woocommerce-page {
 	background-color: lighten(#151622, 20%);
-background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
+background-image: url("http://warsztatqulinarny.pl/img/textures/low-contrast-linen.png");
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 
 	.woocommerce-additional-fields__field-wrapper {
@@ -55,7 +55,9 @@ background-image: url("https://www.transparenttextures.com/patterns/low-contrast
         input{
             padding:0;
             margin:0 !important;
-            margin-top: 7px !important;
+            border: 1px solid #ddd;
+            padding:4px;
+            width:60px !important;
         }
 
     }

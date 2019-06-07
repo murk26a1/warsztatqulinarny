@@ -2,9 +2,6 @@ require('waypoints/lib/noframework.waypoints.js')
 require('waypoints/lib/shortcuts/inview.min.js')
 
 import anime from 'animejs';
-
-
-
 // ************ Height change detect
 function onElementHeightChange(elm, callback) {
     var lastHeight = elm.clientHeight, newHeight;
@@ -132,6 +129,30 @@ if (document.getElementById('section-about')) {
 
 */
 
+if (document.getElementById('section-banner')) {
+    $(window).on('load', function () {
+        $('#section-banner .food1').addClass('b-fadeInRight');
+        $('#section-banner .food2').addClass('b-fadeInLeft');
+        var waypoint = new Waypoint.Inview({
+            element: document.getElementById('section-banner'),
+            enter: function () {
+                $('#section-banner .food1').addClass('b-fadeInRight-a');
+                $('#section-banner .food2').addClass('b-fadeInLeft-a');
+                
+            },
+            exited: function () {
+                $('#section-banner .food1').removeClass('b-fadeInRight-a');
+                $('#section-banner .food2').removeClass('b-fadeInLeft-a');
+                
+            },
+            offset: {
+                top: 400,
+                bottom: 400
+            }
+        })
+    })
+};
+
 
 if (document.getElementById('section-about')) {
 
@@ -204,7 +225,7 @@ if (document.getElementById('section-course-program')) {
         element: document.getElementById('section-course-program'),
         enter: function () {
             $('#section-course-program .row').addClass('fadeInUp-a');
-            
+
         },
         exited: function () {
             //  $('#section-courses .card-body').removeClass('fadeInUp-a');

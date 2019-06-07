@@ -9,10 +9,11 @@
 
 get_header();
 ?>
+<?php $img = get_theme_file_uri(); ?>
 <style>
 	body {
 		background-color: #3c3f61;
-		background-image: url(https://www.transparenttextures.com/patterns/low-contrast-linen.png);
+		background-image: url('<?php echo $img; ?>/img/textures/low-contrast-linen.png');');
 	}
 </style>
 

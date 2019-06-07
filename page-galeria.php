@@ -45,7 +45,7 @@ get_header();
 
 						<div class="row no-gutters gallery-row">
 							<div class="col-12 col-md-8 big <?php if ($reverse == true) { ?>order-last <?php } ?>">
-								<img class="lazy opacity-d" <?php img_resp(get_sub_field('obrazek_duzy'), 'xl', '1366px'); ?> alt="text" />
+								<img class="lazy opacity-d-gal" <?php img_resp(get_sub_field('obrazek_duzy'), 'xl', '1366px'); ?> alt="text" />
 							</div>
 							<div class="col-12 col-md-4 small">
 								<div class="double-img <?php if ($reverse == true) { ?>reverse <?php $reverse = false;
@@ -53,10 +53,10 @@ get_header();
 																									$reverse = true;
 																								} ?>">
 									<div class="s-img">
-										<img class="lazy opacity-d" <?php img_resp(get_sub_field('obrazek_maly_gora'), 'xl', '1366px'); ?> alt="text" />
+										<img class="lazy opacity-d-gal" <?php img_resp(get_sub_field('obrazek_maly_gora'), 'xl', '1366px'); ?> alt="text" />
 									</div>
 									<div class="s-img">
-										<img class="lazy opacity-d" <?php img_resp(get_sub_field('obrazek_maly_dol'), 'xl', '1366px'); ?> alt="text" />
+										<img class="lazy opacity-d-gal" <?php img_resp(get_sub_field('obrazek_maly_dol'), 'xl', '1366px'); ?> alt="text" />
 									</div>
 								</div>
 							</div>

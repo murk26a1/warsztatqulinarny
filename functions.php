@@ -174,10 +174,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 function custom_fonts() {
 
 	wp_enqueue_style( 'FontAwesome', 'https://use.fontawesome.com/releases/v5.8.2/css/all.css' );
-	wp_enqueue_style( 'FiraSans', 'https://fonts.googleapis.com/css?family=Fira+Sans:400,700&amp;subset=latin-ext' );
+	//wp_enqueue_style( 'FiraSans', 'https://fonts.googleapis.com/css?family=Fira+Sans:400,700&amp;subset=latin-ext' );
 	wp_enqueue_style( 'Montserrat', 'https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;subset=latin-ext' );
 	wp_enqueue_style( 'Poppins', 'https://fonts.googleapis.com/css?family=Poppins:400,700&amp;subset=latin-ext' );
-	wp_enqueue_style( 'Teko', 'https://fonts.googleapis.com/css?family=Teko:400,700&amp;subset=latin-ext' );
+	//wp_enqueue_style( 'Teko', 'https://fonts.googleapis.com/css?family=Teko:400,700&amp;subset=latin-ext' );
 	
 
 }

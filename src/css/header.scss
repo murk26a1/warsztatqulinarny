@@ -16,7 +16,7 @@
 	.logo {
 		width: 50%;
 		@include md {
-			width: 300px;
+			width: 290px;
 		}
 		img {
 			width: 100%;
@@ -32,7 +32,7 @@
 		right: -100%;
 		top: 0;
 		background-color: rgba(0, 0, 0, 0.95);
-		background-image: url(https://www.transparenttextures.com/patterns/cross-stripes.png);
+		background-image: url(http://warsztatqulinarny.pl/img/textures/cross-stripes.png);
 		width: 100%;
 		height: 100vh;
 		transition: right 0.3s ease-in-out;
@@ -44,7 +44,7 @@
 			display: flex;
 			justify-content: flex-end;
 			width: auto;
-			margin-left: 15%;
+			margin-left: 5%;
 		}
 		a,
 		a:hover,
@@ -83,7 +83,7 @@
 		.menu_szkolenia {
 			.fa-caret-down {
 				display:none;
-				@include lg {
+				@include xl {
 					margin-left: 5px;
 					display:inline-block;
 				}
@@ -94,7 +94,7 @@
 				padding: 0;
 				margin: 0;
 				display: none;
-				@include lg {
+				@include xl {
 					display: block;
 					opacity: 0;
 					width: 0;
@@ -104,7 +104,7 @@
 				li {
 					img {
 						display: none;
-						@include lg {
+						@include xl {
 							display: inline-block;
 							width: 75px;
 							height: 50px;
@@ -119,7 +119,7 @@
 				display: block;
 				margin-top: 50px;
 				width: 300px;
-				@include lg {
+				@include xl {
 					position: absolute;
 					top: 30%;
 					left: 0;
@@ -261,7 +261,7 @@
 
 .nav-down {
 	background-color: $c-accent2;
-	background-image: url(https://www.transparenttextures.com/patterns/cross-stripes.png);
+	background-image: url(http://warsztatqulinarny.pl/img/textures/cross-stripes.png);
 }
 
 .hamburger {

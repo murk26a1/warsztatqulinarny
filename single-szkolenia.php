@@ -114,7 +114,8 @@ get_header();
 		</section>
 		<section id="section-course-program">
 			<div class="container">
-				<div class="row" style="background-image: url(https://www.transparenttextures.com/patterns/clean-textile.png);">
+				<?php $img = get_theme_file_uri(); ?>
+				<div class="row" style="background-image: url('<?php echo $img; ?>/img/textures/clean-textile.png');">
 					<div class="col-12 col-md-6 sm-col">
 						<div class="header">
 							<svg class="svg-knives" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 81.899 45.974">
@@ -162,7 +163,7 @@ get_header();
 							<h2>Przykładowe menu</h2>
 						</div>
 						<div class="menu">
-						<?php if (have_rows('menu')) :
+							<?php if (have_rows('menu')) :
 								while (have_rows('menu')) : the_row();
 									?>
 									<span><?php the_sub_field('naglowek_menu'); ?></span>
@@ -219,8 +220,31 @@ get_header();
 			</section>
 		<?php } ?>
 
-
-
+		<section id="section-how">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="s-header">
+							<h2>Jak się zapisać?</h2>
+						</div>
+					</div>
+				</div>
+				<div class="row wrapper">
+					<div class="col-12 col-md-6 c-how">
+						<h3>Sposób 1</h3>
+						<div class="text">
+							<?php the_field('lewa_kolumna'); ?>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 c-how">
+						<h3>Sposób 2</h3>
+						<div class="text">
+							<?php the_field('prawa_kolumna'); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 
 
@@ -301,7 +325,8 @@ get_header();
 						?>
 							<div class="row wrapper">
 								<div class="col-5 col-md-3 col-no-padding">
-									<div class="course-img" style="background-image: url('<?php echo get_theme_file_uri(); ?>/img/ph-courses.png');">
+									<div class="course-img">
+										<?php the_post_thumbnail('medium'); ?>
 									</div>
 								</div>
 								<div class="col-7 col-md-6">

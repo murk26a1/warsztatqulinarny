@@ -13,7 +13,7 @@ get_header();
         ?>
 
         <?php
-        if (wp_is_mobile()) {
+        if (wp_is_mobile() & 0 == 2) {
             $img = get_theme_file_uri() . "/img/banner_m.jpg";
         } else {
             $img = get_theme_file_uri() . "/img/banner.jpg";
@@ -22,16 +22,20 @@ get_header();
 
         <section id="section-banner" style="background-image: url('<?php echo $img; ?>');">
 
+            <div class="ill-img">
+                <?php $img = get_theme_file_uri(); ?>
+                <img class="food1 b-fadeInRight" src="<?php echo $img; ?>/img/ill/zdj/food-t.png" />
+                <img class="food2 b-fadeInLeft" src="<?php echo $img; ?>/img/ill/zdj/food-t2.png" />
+            </div>
 
             <h1><span class="red">Wa</span>rsztat <span class="margin"><span class="red">Qu</span>linarny</span></h1>
             <div class="wrapper">
                 <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
                 <div class="double-btn">
-                    <a href="google.com" class="m-btn m-btn-w">szkolenia</a>
-                    <a href="google.com" class="m-btn">o mnie</a>
+                    <a href="<?php echo site_url(); ?>/szkolenia" class="m-btn m-btn-w">szkolenia</a>
+                    <a href="<?php echo site_url(); ?>/o-mnie" class="m-btn">o mnie</a>
                 </div>
             </div>
-
 
             <div class="divider">
                 <svg width="100%" height="350" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">>
@@ -197,7 +201,8 @@ get_header();
 
                                 <div class="row wrapper">
                                     <div class="col-5 col-md-3 col-no-padding">
-                                        <div class="course-img" style="background-image: url('<?php echo get_theme_file_uri(); ?>/img/ph-courses.png');">
+                                        <div class="course-img">
+                                            <?php the_post_thumbnail('medium'); ?>
                                         </div>
                                     </div>
                                     <div class="col-7 col-md-6">
@@ -297,7 +302,7 @@ get_header();
 
         <section id="section-video">
             <video class="lazy" width="100%" height="auto" loop="loop" poster="<?php echo get_theme_file_uri(); ?>/img/poster.jpg" autoplay muted>
-                <source data-src="<?php echo get_theme_file_uri(); ?>/img/vid.mp4" type="video/mp4">
+                <source data-src="<?php echo get_theme_file_uri(); ?>/img/vid_c.mp4" type="video/mp4">
             </video>
         </section>
 
@@ -321,7 +326,7 @@ get_header();
                             <?php the_field('o_mnie_tekst'); ?>
                         </div>
                         <div class="single-btn">
-                            <a href="google.com" class="m-btn">więcej</a>
+                            <a href="<?php echo site_url(); ?>/o-mnie" class="m-btn">więcej</a>
                         </div>
                         <div class="bg-image czapka" style="background-image: url('<?php echo $img; ?>/img/ill/czapka.png');"></div>
                     </div>
@@ -360,7 +365,7 @@ get_header();
                     </div>
                     <?php $img = get_theme_file_uri(); ?>
                     <div class="col-12 col-md-6 col-no-padding" style="background-color: #000000;
-    background-image: url('<?php echo $img; ?>/img/textures/food.png');">
+                                        background-image: url('<?php echo $img; ?>/img/textures/food.png');">
                         <div class="wrapper">
                             <h3>Napisz do nas</h3>
                             <?php echo do_shortcode('[contact-form-7 id="11" title="Formularz kontaktowy"]'); ?>
