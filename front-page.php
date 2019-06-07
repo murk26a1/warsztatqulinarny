@@ -13,7 +13,7 @@ get_header();
         ?>
 
         <?php
-        if (wp_is_mobile() & 0 == 2) {
+        if (wp_is_mobile()) {
             $img = get_theme_file_uri() . "/img/banner_m.jpg";
         } else {
             $img = get_theme_file_uri() . "/img/banner.jpg";
@@ -21,13 +21,14 @@ get_header();
         ?>
 
         <section id="section-banner" style="background-image: url('<?php echo $img; ?>');">
-
+        <?php
+        if (!wp_is_mobile()) { ?>
             <div class="ill-img">
                 <?php $img = get_theme_file_uri(); ?>
                 <img class="food1 b-fadeInRight" src="<?php echo $img; ?>/img/ill/zdj/food-t.png" />
                 <img class="food2 b-fadeInLeft" src="<?php echo $img; ?>/img/ill/zdj/food-t2.png" />
             </div>
-
+        <?php } ?>
             <h1><span class="red">Wa</span>rsztat <span class="margin"><span class="red">Qu</span>linarny</span></h1>
             <div class="wrapper">
                 <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
