@@ -324,12 +324,12 @@ get_header();
 							<?php }
 						?>
 							<div class="row wrapper">
-								<div class="col-5 col-md-3 col-no-padding">
+								<div class="col-5 col-md-3 col-no-padding d-none d-md-block">
 									<div class="course-img">
 										<?php the_post_thumbnail('medium'); ?>
 									</div>
 								</div>
-								<div class="col-7 col-md-6">
+								<div class="col-12 col-md-6">
 									<h3>
 										<?php echo $product->get_name(); ?></br>
 									</h3>

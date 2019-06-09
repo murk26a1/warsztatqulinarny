@@ -21,14 +21,13 @@ get_header();
         ?>
 
         <section id="section-banner" style="background-image: url('<?php echo $img; ?>');">
-        <?php
-        if (!wp_is_mobile()) { ?>
+
             <div class="ill-img">
                 <?php $img = get_theme_file_uri(); ?>
                 <img class="food1 b-fadeInRight" src="<?php echo $img; ?>/img/ill/zdj/food-t.png" />
                 <img class="food2 b-fadeInLeft" src="<?php echo $img; ?>/img/ill/zdj/food-t2.png" />
             </div>
-        <?php } ?>
+   
             <h1><span class="red">Wa</span>rsztat <span class="margin"><span class="red">Qu</span>linarny</span></h1>
             <div class="wrapper">
                 <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
@@ -201,12 +200,12 @@ get_header();
                                 ?>
 
                                 <div class="row wrapper">
-                                    <div class="col-5 col-md-3 col-no-padding">
+                                    <div class="col-5 col-md-3 col-no-padding d-none d-md-block">
                                         <div class="course-img">
                                             <?php the_post_thumbnail('medium'); ?>
                                         </div>
                                     </div>
-                                    <div class="col-7 col-md-6">
+                                    <div class="col-12 col-md-6">
                                         <h3>
                                             <?php echo $product->get_name(); ?></br>
                                         </h3>
