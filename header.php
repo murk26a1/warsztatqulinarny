@@ -64,7 +64,12 @@
                             'order' => 'asc'
                         ));
                         while ($szkolenia->have_posts()) : $szkolenia->the_post(); ?>
-                            <li><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?><?php the_title(); ?></a></li>
+                            <li><a href="<?php the_permalink(); ?>">
+                                    <?php
+                                    if (!wp_is_mobile()) { ?>
+                                        <?php the_post_thumbnail('thumbnail'); ?>
+                                    <?php } ?>
+                                    <?php the_title(); ?></a></li>
                         <?php endwhile; ?>
                     </ul>
                 </li>
