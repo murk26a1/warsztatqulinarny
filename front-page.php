@@ -21,13 +21,14 @@ get_header();
         ?>
 
         <section id="section-banner" style="background-image: url('<?php echo $img; ?>');">
-
-            <div class="ill-img">
-                <?php $img = get_theme_file_uri(); ?>
-                <img class="food1 b-fadeInRight" src="<?php echo $img; ?>/img/ill/zdj/food-t.png" />
-                <img class="food2 b-fadeInLeft" src="<?php echo $img; ?>/img/ill/zdj/food-t2.png" />
-            </div>
-   
+            <?php
+            if (!wp_is_mobile()) { ?>
+                <div class="ill-img">
+                    <?php $img = get_theme_file_uri(); ?>
+                    <img class="food1 b-fadeInRight" src="<?php echo $img; ?>/img/ill/zdj/food-t.png" />
+                    <img class="food2 b-fadeInLeft" src="<?php echo $img; ?>/img/ill/zdj/food-t2.png" />
+                </div>
+            <?php } ?>
             <h1><span class="red">Wa</span>rsztat <span class="margin"><span class="red">Qu</span>linarny</span></h1>
             <div class="wrapper">
                 <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
@@ -95,25 +96,31 @@ get_header();
                         </div>
                     </div>
                     <div class="col-md-5 d-none d-md-block wrapper-photos">
-                        <div class="photos" id="photo3" style="background-image: url('<?php the_field('zdjecie_3'); ?>">
-                        </div>
-                        <div class="photos" id="photo2" style="background-image: url('<?php the_field('zdjecie_2'); ?>">
-                        </div>
-                        <div class="photos" id="photo1" style="background-image: url('<?php the_field('zdjecie_1'); ?>">
-                        </div>
+                        <?php
+                        if (!wp_is_mobile()) { ?>
+                            <div class="photos" id="photo3" style="background-image: url('<?php the_field('zdjecie_3'); ?>">
+                            </div>
+                            <div class="photos" id="photo2" style="background-image: url('<?php the_field('zdjecie_2'); ?>">
+                            </div>
+                            <div class="photos" id="photo1" style="background-image: url('<?php the_field('zdjecie_1'); ?>">
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
-            <?php $img = get_theme_file_uri(); ?>
-            <div class="ill cebula" style="background-image: url('<?php echo $img; ?>/img/ill/small/cebula.png');"></div>
-            <?php $img = get_theme_file_uri(); ?>
-            <div class="ill lisc" style="background-image: url('<?php echo $img; ?>/img/ill/small/lisc.png');"></div>
-            <?php $img = get_theme_file_uri(); ?>
-            <div class="ill lisc2" style="background-image: url('<?php echo $img; ?>/img/ill/small/lisc.png');"></div>
-            <?php $img = get_theme_file_uri(); ?>
-            <div class="ill papryka" style="background-image: url('<?php echo $img; ?>/img/ill/small/papryka.png');"></div>
-            <?php $img = get_theme_file_uri(); ?>
-            <div class="ill ziemniak" style="background-image: url('<?php echo $img; ?>/img/ill/small/ziemniak.png');"></div>
+            <?php
+            if (!wp_is_mobile()) { ?>
+                <?php $img = get_theme_file_uri(); ?>
+                <div class="ill cebula" style="background-image: url('<?php echo $img; ?>/img/ill/small/cebula.png');"></div>
+                <?php $img = get_theme_file_uri(); ?>
+                <div class="ill lisc" style="background-image: url('<?php echo $img; ?>/img/ill/small/lisc.png');"></div>
+                <?php $img = get_theme_file_uri(); ?>
+                <div class="ill lisc2" style="background-image: url('<?php echo $img; ?>/img/ill/small/lisc.png');"></div>
+                <?php $img = get_theme_file_uri(); ?>
+                <div class="ill papryka" style="background-image: url('<?php echo $img; ?>/img/ill/small/papryka.png');"></div>
+                <?php $img = get_theme_file_uri(); ?>
+                <div class="ill ziemniak" style="background-image: url('<?php echo $img; ?>/img/ill/small/ziemniak.png');"></div>
+            <?php } ?>
             <?php $img = get_theme_file_uri(); ?>
             <div class="bg-image deska" style="background-image: url('<?php echo $img; ?>/img/ill/deska.png');"></div>
 
@@ -201,20 +208,21 @@ get_header();
 
                                 <div class="row wrapper">
                                     <div class="col-5 col-md-3 col-no-padding d-none d-md-block">
-                                        <div class="course-img">
-                                            <?php the_post_thumbnail('medium'); ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                        <h3>
-                                            <?php echo $product->get_name(); ?></br>
-                                        </h3>
-                                        <p>
-                                            Rozpoczęcie: <span><?php the_field('data_rozpoczecia'); ?></span>
-                                        </p>
-                                        <p>
-                                            Zakończenie: <span><?php the_field('data_zakonczenia'); ?></span>
-                                        </p>
+                                        <?php
+                                        if (!wp_is_mobile()) { ?>
+                                            <div class="course-img">
+                                                <?php the_post_thumbnail('medium'); ?>
+                                            </div>
+                                        <?php } ?>< </div> <div class="col-12 col-md-6">
+                                            <h3>
+                                                <?php echo $product->get_name(); ?></br>
+                                            </h3>
+                                            <p>
+                                                Rozpoczęcie: <span><?php the_field('data_rozpoczecia'); ?></span>
+                                            </p>
+                                            <p>
+                                                Zakończenie: <span><?php the_field('data_zakonczenia'); ?></span>
+                                            </p>
                                     </div>
 
                                     <?php
@@ -365,7 +373,7 @@ get_header();
                     </div>
                     <?php $img = get_theme_file_uri(); ?>
                     <div class="col-12 col-md-6 col-no-padding" style="background-color: #000000;
-                                        background-image: url('<?php echo $img; ?>/img/textures/food.png');">
+                                                        background-image: url('<?php echo $img; ?>/img/textures/food.png');">
                         <div class="wrapper">
                             <h3>Napisz do nas</h3>
                             <?php echo do_shortcode('[contact-form-7 id="11" title="Formularz kontaktowy"]'); ?>
