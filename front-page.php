@@ -213,7 +213,7 @@ get_header();
                                             <div class="course-img">
                                                 <?php the_post_thumbnail('medium'); ?>
                                             </div>
-                                        <?php } ?>< </div> <div class="col-12 col-md-6">
+                                        <?php } ?> </div> <div class="col-12 col-md-6">
                                             <h3>
                                                 <?php echo $product->get_name(); ?></br>
                                             </h3>
