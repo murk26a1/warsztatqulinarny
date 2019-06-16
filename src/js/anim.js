@@ -1,7 +1,6 @@
 require('waypoints/lib/noframework.waypoints.js')
 require('waypoints/lib/shortcuts/inview.min.js')
 
-import anime from 'animejs';
 // ************ Height change detect
 function onElementHeightChange(elm, callback) {
     var lastHeight = elm.clientHeight, newHeight;
@@ -90,46 +89,7 @@ Waypoint.Inview.prototype.createWaypoints = function () {
 
 
 
-
-
-//home
-
-/*
-if (document.getElementById('section-about')) {
-
-    $('#section-about .wrapper').addClass('anim-left');
-    $('#section-about .photos').addClass('anim-left');
-    $('#section-about .single-btn').addClass('opacity0');
-
-    var waypoint = new Waypoint.Inview({
-        element: document.getElementById('section-about'),
-        enter: function () {
-            $('#section-about .wrapper').removeClass('anim-left');
-            $('#section-about .wrapper').addClass('anim-left-s');
-            $('#section-about .single-btn').removeClass('opacity0 delay15');
-            $('#section-about .single-btn').addClass('opacity1 delay15');
-            $('#section-about .photos').removeClass('anim-left delay1');
-            $('#section-about .photos').addClass('anim-left-s delay1');
-        },
-        exited: function () {
-            $('#section-about .wrapper').removeClass('anim-left-s');
-            $('#section-about .wrapper').addClass('anim-left');
-            $('#section-about .single-btn').removeClass('opacity1 delay15');
-            $('#section-about .single-btn').addClass('opacity0 delay15');
-            $('#section-about .photos').removeClass('anim-left-s delay1');
-            $('#section-about .photos').addClass('anim-left delay1');
-        },
-        offset: {
-            top: 400,
-            bottom: 400
-        }
-    })
-
-};
-
-*/
-
-if (document.getElementById('section-banner')) {
+if (document.getElementById('section-banner') && screen.width() >= 992) {
     $(window).on('load', function () {
         $('#section-banner .food1').addClass('b-fadeInRight');
         $('#section-banner .food2').addClass('b-fadeInLeft');
@@ -154,7 +114,7 @@ if (document.getElementById('section-banner')) {
 };
 
 
-if (document.getElementById('section-about')) {
+if (document.getElementById('section-about') && screen.width() >= 992) {
 
     $('#section-about .wrapper').addClass('fadeInUp');
     $('#section-about .photos').addClass('fadeInUp');
@@ -177,7 +137,7 @@ if (document.getElementById('section-about')) {
 
 };
 
-if (document.getElementById('section-courses')) {
+if (document.getElementById('section-courses') && screen.width() >= 992) {
 
     $('#section-courses .card-body').addClass('fadeInUp');
 
@@ -197,7 +157,7 @@ if (document.getElementById('section-courses')) {
 
 };
 
-if (document.getElementById('section-course-info')) {
+if (document.getElementById('section-course-info') && screen.width() >= 992) {
 
     $('#section-course-info').addClass('fadeInUp');
 
@@ -217,7 +177,7 @@ if (document.getElementById('section-course-info')) {
 
 };
 
-if (document.getElementById('section-course-program')) {
+if (document.getElementById('section-course-program') && screen.width() >= 992) {
 
     $('#section-course-program .row').addClass('fadeInUp');
 
@@ -238,7 +198,7 @@ if (document.getElementById('section-course-program')) {
 
 };
 
-if (document.getElementById('section-courses-t')) {
+if (document.getElementById('section-courses-t') && screen.width() >= 992) {
 
     $('#section-courses-t .wrapper').addClass('fadeInUp');
     let el = document.getElementById('section-courses-t').getElementsByClassName('wrapper');
@@ -265,7 +225,7 @@ if (document.getElementById('section-courses-t')) {
 
 };
 
-if (document.getElementsByClassName('header')) {
+if (document.getElementsByClassName('header') && screen.width() >= 992) {
 
     $('.header').addClass('anim-clip');
     let el = document.getElementsByClassName('header');
@@ -292,7 +252,7 @@ if (document.getElementsByClassName('header')) {
 
 };
 
-if (document.getElementById('section-black-bg')) {
+if (document.getElementById('section-black-bg') && screen.width() >= 992) {
 
     $('#section-black-bg .offset-md-6').addClass('fadeInUp');
 
@@ -309,7 +269,7 @@ if (document.getElementById('section-black-bg')) {
 
 };
 
-if (document.getElementById('section-faq')) {
+if (document.getElementById('section-faq') && screen.width() >= 992) {
     $('#section-faq .card').addClass('fadeInUp');
     let el = document.getElementById('section-faq').getElementsByClassName('card');
     for (let i = 0; i < el.length; i++) {
@@ -335,7 +295,7 @@ if (document.getElementById('section-faq')) {
 
 };
 
-if (document.getElementById('section-cert')) {
+if (document.getElementById('section-cert') && screen.width() >= 992) {
 
     $('#section-cert .cert').addClass('fadeInUp');
     let el = document.getElementById('section-cert').getElementsByClassName('cert');
