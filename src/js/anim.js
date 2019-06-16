@@ -89,7 +89,7 @@ Waypoint.Inview.prototype.createWaypoints = function () {
 
 
 
-if (document.getElementById('section-banner') && screen.width() >= 992) {
+if (document.getElementById('section-banner') && $(window).width() >= 992) {
     $(window).on('load', function () {
         $('#section-banner .food1').addClass('b-fadeInRight');
         $('#section-banner .food2').addClass('b-fadeInLeft');
@@ -114,7 +114,7 @@ if (document.getElementById('section-banner') && screen.width() >= 992) {
 };
 
 
-if (document.getElementById('section-about') && screen.width() >= 992) {
+if (document.getElementById('section-about') && $(window).width() >= 992) {
 
     $('#section-about .wrapper').addClass('fadeInUp');
     $('#section-about .photos').addClass('fadeInUp');
@@ -137,7 +137,7 @@ if (document.getElementById('section-about') && screen.width() >= 992) {
 
 };
 
-if (document.getElementById('section-courses') && screen.width() >= 992) {
+if (document.getElementById('section-courses') && $(window).width() >= 992) {
 
     $('#section-courses .card-body').addClass('fadeInUp');
 
@@ -157,7 +157,7 @@ if (document.getElementById('section-courses') && screen.width() >= 992) {
 
 };
 
-if (document.getElementById('section-course-info') && screen.width() >= 992) {
+if (document.getElementById('section-course-info') && $(window).width() >= 992) {
 
     $('#section-course-info').addClass('fadeInUp');
 
@@ -177,7 +177,7 @@ if (document.getElementById('section-course-info') && screen.width() >= 992) {
 
 };
 
-if (document.getElementById('section-course-program') && screen.width() >= 992) {
+if (document.getElementById('section-course-program') && $(window).width() >= 992) {
 
     $('#section-course-program .row').addClass('fadeInUp');
 
@@ -198,7 +198,7 @@ if (document.getElementById('section-course-program') && screen.width() >= 992) 
 
 };
 
-if (document.getElementById('section-courses-t') && screen.width() >= 992) {
+if (document.getElementById('section-courses-t') && $(window).width() >= 992) {
 
     $('#section-courses-t .wrapper').addClass('fadeInUp');
     let el = document.getElementById('section-courses-t').getElementsByClassName('wrapper');
@@ -225,7 +225,7 @@ if (document.getElementById('section-courses-t') && screen.width() >= 992) {
 
 };
 
-if (document.getElementsByClassName('header') && screen.width() >= 992) {
+if (document.getElementsByClassName('header') && $(window).width() >= 992) {
 
     $('.header').addClass('anim-clip');
     let el = document.getElementsByClassName('header');
@@ -252,7 +252,7 @@ if (document.getElementsByClassName('header') && screen.width() >= 992) {
 
 };
 
-if (document.getElementById('section-black-bg') && screen.width() >= 992) {
+if (document.getElementById('section-black-bg') && $(window).width() >= 992) {
 
     $('#section-black-bg .offset-md-6').addClass('fadeInUp');
 
@@ -269,7 +269,7 @@ if (document.getElementById('section-black-bg') && screen.width() >= 992) {
 
 };
 
-if (document.getElementById('section-faq') && screen.width() >= 992) {
+if (document.getElementById('section-faq') && $(window).width() >= 992) {
     $('#section-faq .card').addClass('fadeInUp');
     let el = document.getElementById('section-faq').getElementsByClassName('card');
     for (let i = 0; i < el.length; i++) {
@@ -295,7 +295,7 @@ if (document.getElementById('section-faq') && screen.width() >= 992) {
 
 };
 
-if (document.getElementById('section-cert') && screen.width() >= 992) {
+if (document.getElementById('section-cert') && $(window).width() >= 992) {
 
     $('#section-cert .cert').addClass('fadeInUp');
     let el = document.getElementById('section-cert').getElementsByClassName('cert');
