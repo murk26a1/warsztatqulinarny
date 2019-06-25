@@ -320,12 +320,12 @@ function remove_image_zoom_support() {
 }
 add_action( 'wp', 'remove_image_zoom_support', 100 );
 
-if (is_admin()) { ?>
+add_action('admin_head', 'admin_style');
 
-	<style>
-		#menu-comments, #toplevel_page_ai1wm_export, #toplevel_page_edit-post_type-acf-field-group, #toplevel_page_theseoframework-settings, #toplevel_page_cptui_main_menu, #toplevel_page_wppusher {
-			display: none;
-		}
-	</style>
-
-<?php }
+function admin_style() {
+  echo '<style>
+	#menu-comments, #toplevel_page_ai1wm_export, #toplevel_page_edit-post_type-acf-field-group, #toplevel_page_theseoframework-settings, #toplevel_page_cptui_main_menu, #toplevel_page_wppusher {
+		display: none;
+	}
+  </style>';
+}
