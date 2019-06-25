@@ -95,7 +95,12 @@
                 <a href="<?php the_field('facebook', 'option'); ?>" target="_blank"><i class="fab fa-facebook-square"></i></a>
                 <a href="<?php the_field('instagram', 'option'); ?>" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="<?php the_field('twitter', 'option'); ?>" target="_blank"><i class="fab fa-twitter-square"></i></a>
-                <a href="mailto:<?php the_field('e-mail', 'option'); ?>"><i class="far fa-envelope"></i></a>
+                <?php
+        if (wp_is_mobile()) { ?>
+            <a href="mailto:<?php the_field('e-mail', 'option'); ?>"><i class="far fa-envelope"></i></a>
+        <?php } else { ?>
+            <a class="header_contact_btn"><i class="far fa-envelope"></i></a>
+        <?php } ?>
             </div>
         </nav>
         <div class="basket">
@@ -115,4 +120,18 @@
                 </span>
             </span>
         </button>
+
     </header>
+
+    <div class="header-contact">
+        <div class="wrapper">
+            <div>
+                <div class="close-header-contact"><i class="fas fa-window-close"></i></div>
+                <h3>Napisz do nas</h3>
+                <p>
+                    Email: <a href="mailto:<?php the_field('e-mail', 'option'); ?>"><?php the_field('e-mail', 'option'); ?></a>
+                </p>
+                <?php echo do_shortcode('[contact-form-7 id="11" title="Formularz kontaktowy"]'); ?>
+            </div>
+        </div>
+    </div>

@@ -1,10 +1,10 @@
 import 'bootstrap';
 
-$(window).on('load', function() { // makes sure the whole site is loaded 
+$(window).on('load', function () { // makes sure the whole site is loaded 
     $('#status').fadeOut(); // will first fade out the loading animation 
     $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website. 
-    $('body').delay(350).css({'overflow':'visible'});
-  })
+    $('body').delay(350).css({ 'overflow': 'visible' });
+})
 
 
 // ************ Resize detect
@@ -191,7 +191,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     var $element = $('.parallax');
     if ($element.length != 0) {
-        
+
         var $follow = $element.find('.follow');
         var followHeight = $element.find('.follow').outerHeight();
         var height = $element.outerHeight();
@@ -221,3 +221,19 @@ $(document).ready(function () {
     }
 
 });
+
+if (document.querySelector('.header_contact_btn')) {
+
+    const header_contact_btn = document.querySelector('.header_contact_btn');
+    const header_contact_btn_close = document.querySelector('.fa-window-close');
+
+    header_contact_btn.addEventListener('click', function () {
+
+        $('.header-contact').addClass('header-contact-active');
+
+
+    });
+    header_contact_btn_close.addEventListener('click', function () {
+        $('.header-contact').removeClass('header-contact-active');
+    });
+}
