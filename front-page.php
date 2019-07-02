@@ -31,10 +31,10 @@ get_header();
             <?php } ?>
             <h1><span class="red">Wa</span>rsztat <span class="margin"><span class="red">Qu</span>linarny</span></h1>
             <div class="wrapper">
-                <h2 style="font-size:2.3rem">Stworzony z pasji do gotowanie, ze szczyptą humoru i dużą dozą profesjonalizmu</h2>
+                <h2 style="font-size:2.3rem">Stworzony z pasji do gotowania, ze szczyptą humoru i dużą dozą profesjonalizmu</h2>
                 <div class="double-btn">
-                    <a href="<?php echo site_url(); ?>/szkolenia" class="m-btn m-btn-w">szkolenia</a>
-                    <a href="<?php echo site_url(); ?>/o-mnie" class="m-btn">o mnie</a>
+                    <a href="<?php echo site_url(); ?>/szkolenia" class="m-btn m-btn-w">Szkolenia</a>
+                    <a href="<?php echo site_url(); ?>/o-mnie" class="m-btn">O mnie</a>
                 </div>
             </div>
 
