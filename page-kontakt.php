@@ -64,7 +64,7 @@ get_header();
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-12">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10245.25234135226!2d19.937351!3d50.061698!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b0df90f6453%3A0xbb2e110fa28d685b!2zUnluZWsgR8WCw7N3bnksIDMxLTAwMCBLcmFrw7N3!5e0!3m2!1spl!2spl!4v1558021147863!5m2!1spl!2spl" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.637669536011!2d20.019980415837956!3d50.09307032093193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4716454fcaa07f0b%3A0x17c21817a9e15650!2sGen.+Leopolda+Okulickiego+51%2C+31-637+Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1562171072407!5m2!1spl!2spl" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
 					</div>
 				</div>
 			</div>
