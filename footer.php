@@ -58,6 +58,8 @@ var lazyLoadInstance = new LazyLoad({
     elements_selector: ".lazy",
 });
 </script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?tracking=1&thirdparty=1&always=1&hideDetailsBtn=1&showPolicyLink=1&privacyPage=https%3A%2F%2Fwarsztatqulinarny.pl%2Fpolityka-prywatnosci"></script>
 <?php wp_footer(); ?>
 
 </body>
