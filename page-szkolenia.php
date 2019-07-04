@@ -83,7 +83,7 @@ get_header();
 						$start_date = new DateTime($start_date);
 						$start_date = $start_date->format('Ymd');
 						setup_postdata($post);
-						if ($start_date > $today && $i <= 14) {
+						if ($start_date > $today && $i <= 1000) {
 							$i++;
 							?>
 
