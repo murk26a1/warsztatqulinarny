@@ -39,6 +39,7 @@
                 <ul>
                     <li><i class="far fa-envelope"></i><a href="mailto:<?php the_field('e-mail', 'option'); ?>"><?php the_field('e-mail', 'option'); ?></a></li>
                     <li><i class="fas fa-phone"></i><a href="tel:<?php the_field('telefon', 'option'); ?>"><?php the_field('telefon', 'option'); ?></a></li>
+                    <li><i class="fas fa-phone"></i><a href="tel:<?php the_field('telefon2', 'option'); ?>"><?php the_field('telefon2', 'option'); ?></a></li>
                     <li><i class="fas fa-home"></i><?php the_field('adres', 'option'); ?></li>
                 </ul>
             </div>

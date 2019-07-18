@@ -362,6 +362,9 @@ get_header();
                                 <i class="fas fa-phone"></i> <a href="tel:<?php the_field('telefon', 'option'); ?>"><?php the_field('telefon', 'option'); ?></a>
                             </p>
                             <p>
+                                <i class="fas fa-phone"></i> <a href="tel:<?php the_field('telefon2', 'option'); ?>"><?php the_field('telefon2', 'option'); ?></a>
+                            </p>
+                            <p>
                                 <i class="fas fa-home"></i> <?php the_field('adres', 'option'); ?>
                             </p>
 

@@ -258,6 +258,9 @@
 
 	.nav-active {
 		right: 0;
+		position: fixed;
+		overflow: scroll;
+    	height: 100%;
 	}
 	.nav-display {
 		display: none;

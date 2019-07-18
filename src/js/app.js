@@ -113,6 +113,7 @@ const menu_szkolenia = document.querySelector('.menu_szkolenia');
 const menu_szkolenia_ul = document.querySelector('.menu_szkolenia ul');
 const nav = document.querySelector('nav');
 const body = document.querySelector('body');
+const social = document.querySelector('.social');
 let show_szkolenia = false;
 
 menu.addEventListener('click', function () {
@@ -133,11 +134,13 @@ menu_szkolenia.addEventListener('click', function () {
             $('.menu_li').addClass('nav-display');
             menu_szkolenia_link.innerHTML = "<--";
             menu_szkolenia_ul.classList.add('szkolenia-active');
+            social.classList.add('d-none');
             show_szkolenia = true;
         } else {
             $('.menu_li').removeClass('nav-display');
             menu_szkolenia_link.innerHTML = "SZKOLENIA";
             menu_szkolenia_ul.classList.remove('szkolenia-active');
+            social.classList.remove('d-none');
             show_szkolenia = false;
         }
     }
@@ -146,7 +149,6 @@ menu_szkolenia.addEventListener('click', function () {
 menu_szkolenia.addEventListener('mouseover', function () {
     if (screen.width() >= 1200) {
         menu_szkolenia_ul.classList.add('szkolenia-active');
-        console.log("tak");
     }
 }, false);
 
