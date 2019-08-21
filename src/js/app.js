@@ -52,7 +52,12 @@ $(".btn-course").click(function () {
 
 
 
-
+const menu = document.querySelector('.hamburger');
+const menu_szkolenia = document.querySelector('.menu_szkolenia');
+const menu_szkolenia_ul = document.querySelector('.menu_szkolenia ul');
+const nav = document.querySelector('nav');
+const body = document.querySelector('body');
+const social = document.querySelector('.social');
 
 
 
@@ -88,10 +93,12 @@ function hasScrolled() {
     if (st > lastScrollTop && st > navbarHeight) {
         // Scroll Down
         $('.site-header').removeClass('nav-down').addClass('nav-up');
+        menu_szkolenia_ul.classList.remove('szkolenia-active');
     } else {
         // Scroll Up
         if (st + $(window).height() < $(document).height() && btnscroll == 1) {
             $('.site-header').removeClass('nav-up');
+            menu_szkolenia_ul.classList.remove('szkolenia-active');
         }
     }
     if (st != 0) {
@@ -108,12 +115,7 @@ function hasScrolled() {
 
 
 
-const menu = document.querySelector('.hamburger');
-const menu_szkolenia = document.querySelector('.menu_szkolenia');
-const menu_szkolenia_ul = document.querySelector('.menu_szkolenia ul');
-const nav = document.querySelector('nav');
-const body = document.querySelector('body');
-const social = document.querySelector('.social');
+
 let show_szkolenia = false;
 
 menu.addEventListener('click', function () {
