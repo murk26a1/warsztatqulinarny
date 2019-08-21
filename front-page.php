@@ -33,7 +33,7 @@ get_header();
             <div class="wrapper">
                 <h2 style="font-size:2.3rem">Stworzony z pasji do gotowania, ze szczyptą humoru i dużą dozą profesjonalizmu</h2>
                 <div class="double-btn">
-                    <a href="<?php echo site_url(); ?>/szkolenia" class="m-btn m-btn-w">Szkolenia</a>
+                    <a href="<?php echo site_url(); ?>/szkolenia" class="m-btn m-btn-w">Terminarz szkoleń</a>
                     <a href="<?php echo site_url(); ?>/o-mnie" class="m-btn">O mnie</a>
                 </div>
             </div>
