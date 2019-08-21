@@ -58,7 +58,7 @@ const menu_szkolenia_ul = document.querySelector('.menu_szkolenia ul');
 const nav = document.querySelector('nav');
 const body = document.querySelector('body');
 const social = document.querySelector('.social');
-
+const kfs_head_button = document.querySelector('.kfs-head-button');
 
 
 
@@ -93,18 +93,23 @@ function hasScrolled() {
     if (st > lastScrollTop && st > navbarHeight) {
         // Scroll Down
         $('.site-header').removeClass('nav-down').addClass('nav-up');
+        $(kfs_head_button).addClass('kfs-dis');
         menu_szkolenia_ul.classList.remove('szkolenia-active');
+
     } else {
         // Scroll Up
         if (st + $(window).height() < $(document).height() && btnscroll == 1) {
             $('.site-header').removeClass('nav-up');
+            $(kfs_head_button).removeClass('kfs-dis');
             menu_szkolenia_ul.classList.remove('szkolenia-active');
         }
     }
     if (st != 0) {
         $('.site-header').addClass('nav-down');
+        $(kfs_head_button).addClass('kfs-down');
     } else {
         $('.site-header').removeClass('nav-down');
+        $(kfs_head_button).removeClass('kfs-down');
     }
 
 

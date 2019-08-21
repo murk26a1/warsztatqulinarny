@@ -121,6 +121,15 @@
             </span>
         </button>
 
+
+
+        <a href="https://warsztatqulinarny.pl/szkolenia-z-dofinansowan-kfs" class="kfs-head-button">
+            Szkolenia z dofinansowań - KFS
+        </a>
+
+
+
+
     </header>
 
     <div class="header-contact">
