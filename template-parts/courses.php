@@ -21,7 +21,7 @@
                     ));
                     while ($szkolenia->have_posts()) : $szkolenia->the_post(); ?>
                         <li>
-                            <button class="btn btn-primary btn-course" data-toggle="collapse" data-target="#course-<?php echo get_the_id(); ?>" aria-expanded="false" ><?php the_title(); ?></button>
+                            <button class="btn btn-primary btn-course" data-toggle="collapse" data-target="#course-<?php echo get_the_id(); ?>" aria-expanded="false"><?php the_title(); ?></button>
                         </li>
                     <?php endwhile; ?>
                 </ul>
@@ -55,7 +55,9 @@
                         </div>
                         <div class="col-md-5 d-none d-md-block">
                             <div class="img-wrap">
-                                <img class="lazy" <?php img_resp(get_field('obrazek_przy_opisie'), 'medium', '600px'); ?> />
+                                <?php if (get_field('obrazek_przy_opisie')) { ?>
+                                    <img class="lazy" <?php img_resp(get_field('obrazek_przy_opisie'), 'medium', '600px'); ?> />
+                                <?php } ?>
                             </div>
                         </div>
                     </div>

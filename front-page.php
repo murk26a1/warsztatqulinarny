@@ -352,22 +352,22 @@ get_header();
                         <h2>
                             Kontakt
                         </h2>
-                        <div class="wrapper-text">
-                            <h3>
+                        <div class="vcard wrapper-text">
+                            <h3 class="org">
                                 Warsztat Qulinarny
                             </h3>
                             <p>NIP: <?php the_field('nip', 'option'); ?></p>
                             <p>
-                                <i class="far fa-envelope"></i> <a href="mailto:<?php the_field('e-mail', 'option'); ?>"><?php the_field('e-mail', 'option'); ?></a>
+                                <i class="far fa-envelope"></i> <a class="email" href="mailto:<?php the_field('e-mail', 'option'); ?>"><?php the_field('e-mail', 'option'); ?></a>
                             </p>
                             <p>
-                                <i class="fas fa-phone"></i> <a href="tel:<?php the_field('telefon', 'option'); ?>"><?php the_field('telefon', 'option'); ?></a>
+                                <i class="fas fa-phone"></i> <a class="tel"  href="tel:<?php the_field('telefon', 'option'); ?>"><?php the_field('telefon', 'option'); ?></a>
                             </p>
                             <p>
-                                <i class="fas fa-phone"></i> <a href="tel:<?php the_field('telefon2', 'option'); ?>"><?php the_field('telefon2', 'option'); ?></a>
+                                <i class="fas fa-phone"></i> <a class="tel"  href="tel:<?php the_field('telefon2', 'option'); ?>"><?php the_field('telefon2', 'option'); ?></a>
                             </p>
                             <p>
-                                <i class="fas fa-home"></i> <?php the_field('adres', 'option'); ?>
+                                <i class="fas fa-home"></i><span class="adr"> <?php the_field('adres', 'option'); ?></span>
                             </p>
 
                             <?php the_field('dodatkowe_informacje_kontaktowe', 'option'); ?>

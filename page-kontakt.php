@@ -31,7 +31,7 @@ get_header();
 				<div class="row">
 					<div class="col-12 col-md-5 bg">
 						<h2>Kontakt</h2>
-						<div class="wrapper vcard">
+						<div class="vcard wrapper">
 							<h3 class="org">
 								Warsztat Qulinarny
 							</h3>
