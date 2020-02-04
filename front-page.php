@@ -360,11 +360,19 @@ get_header();
                             <p>
                                 <i class="far fa-envelope"></i> <a class="email" href="mailto:<?php the_field('e-mail', 'option'); ?>"><?php the_field('e-mail', 'option'); ?></a>
                             </p>
+                            
+                            <?php 
+                            $tel = get_field('telefon', 'option'); 
+                            $tel2 = get_field('telefon2', 'option'); 
+                            $tel = str_replace(' ','',$tel); 
+                            $tel2 = str_replace(' ','',$tel2); 
+                            ?>
+
                             <p>
-                                <i class="fas fa-phone"></i> <a class="tel"  href="tel:<?php the_field('telefon', 'option'); ?>"><?php the_field('telefon', 'option'); ?></a>
+                                <i class="fas fa-phone"></i> <a class="tel"  href="tel:<?php echo $tel; ?>"><?php the_field('telefon', 'option'); ?></a>
                             </p>
                             <p>
-                                <i class="fas fa-phone"></i> <a class="tel"  href="tel:<?php the_field('telefon2', 'option'); ?>"><?php the_field('telefon2', 'option'); ?></a>
+                                <i class="fas fa-phone"></i> <a class="tel"  href="tel:<?php echo $tel2; ?>"><?php the_field('telefon2', 'option'); ?></a>
                             </p>
                             <p>
                                 <i class="fas fa-home"></i><span class="adr"> <?php the_field('adres', 'option'); ?></span>

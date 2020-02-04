@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer
  *
@@ -38,8 +39,16 @@
                 <h3>Kontakt</h3>
                 <ul class="vcard">
                     <li><i class="far fa-envelope"></i><a class="email" href="mailto:<?php the_field('e-mail', 'option'); ?>"><?php the_field('e-mail', 'option'); ?></a></li>
-                    <li><i class="fas fa-phone"></i><a class="tel" href="tel:<?php the_field('telefon', 'option'); ?>"><?php the_field('telefon', 'option'); ?></a></li>
-                    <li><i class="fas fa-phone"></i><a class="tel" href="tel:<?php the_field('telefon2', 'option'); ?>"><?php the_field('telefon2', 'option'); ?></a></li>
+
+                    <?php
+                    $tel = get_field('telefon', 'option');
+                    $tel2 = get_field('telefon2', 'option');
+                    $tel = str_replace(' ', '', $tel);
+                    $tel2 = str_replace(' ', '', $tel2);
+                    ?>
+
+                    <li><i class="fas fa-phone"></i><a class="tel" href="tel:<?php echo $tel; ?>"><?php the_field('telefon', 'option'); ?></a></li>
+                    <li><i class="fas fa-phone"></i><a class="tel" href="tel:<?php echo $tel2; ?>"><?php the_field('telefon2', 'option'); ?></a></li>
                     <li><i class="fas fa-home"></i><span class="adr"><?php the_field('adres', 'option'); ?></span></li>
                 </ul>
             </div>
@@ -55,9 +64,9 @@
     </div>
 </footer>
 <script>
-var lazyLoadInstance = new LazyLoad({
-    elements_selector: ".lazy",
-});
+    var lazyLoadInstance = new LazyLoad({
+        elements_selector: ".lazy",
+    });
 </script>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?tracking=1&thirdparty=1&always=1&hideDetailsBtn=1&showPolicyLink=1&privacyPage=https%3A%2F%2Fwarsztatqulinarny.pl%2Fpolityka-prywatnosci"></script>
