@@ -7,7 +7,6 @@
 @import "header";
 @import "anim";
 
-
 html {
 	font-size: 62.5%;
 }
@@ -250,6 +249,15 @@ section {
 					z-index: -1;
 				}
 			}
+			ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				li {
+					margin: 0;
+					padding: 0;
+				}
+			}
 			button {
 				margin-top: 5px;
 				margin-bottom: 5px;
@@ -439,6 +447,15 @@ section {
 	.section-head {
 		@include md {
 			text-align: center;
+		}
+	}
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		li {
+			margin: 0;
+			padding: 0;
 		}
 	}
 	.wrapper {
@@ -841,20 +858,22 @@ section {
 		transform: translate(-50%, -50%);
 		color: #fff;
 		background: $c-accent2;
+		padding:15px;
 		@include md {
-			bottom:10%;
-			background:none;
+			padding:0;
+			bottom: 10%;
+			background: none;
 		}
 	}
 }
 
 .article-blog {
 	text-align: left;
-	padding:5px;
+	padding: 5px;
 	padding-bottom: 30px;
 	margin-bottom: 50px;
 	background: #fbfbfb;
-	@include md{
+	@include md {
 		padding: 15px;
 	}
 	.cat-links {
@@ -862,14 +881,14 @@ section {
 	}
 	h1,
 	h2 {
-		font-size:2.4rem;
+		font-size: 2.4rem;
 		a,
 		a:hover,
 		a:focus,
 		a:visited {
 			color: $c-black;
 		}
-		@include md{
+		@include md {
 			font-size: 3.6rem;
 		}
 	}
@@ -903,7 +922,7 @@ section {
 	}
 	.entry-content {
 		padding-top: 0;
-		@include md{
+		@include md {
 			padding: 20px;
 		}
 	}
@@ -1086,6 +1105,10 @@ aside {
 			display: flex;
 			align-items: center;
 			flex-direction: column;
+			overflow-y: scroll;
+			@include md{
+				overflow-y: hidden;
+			}
 			span {
 				margin-top: 5px;
 				margin-bottom: 5px;
@@ -1219,6 +1242,9 @@ aside {
 				object-fit: cover;
 			}
 		}
+	}
+	a {
+		color: #92a5f6;
 	}
 }
 
@@ -1423,29 +1449,65 @@ aside {
 	}
 }
 
-#section-standard{
-	text-align:left;
-	h2{
-		font-size:2.6rem;
+#section-standard {
+	text-align: left;
+	h2 {
+		font-size: 2.6rem;
 		color: #444;
 	}
-	h3{
-		font-size:2.3rem;
+	h3 {
+		font-size: 2.3rem;
 	}
-	h4{
-		font-size:2rem;
+	h4 {
+		font-size: 2rem;
 	}
-	h5{
-		font-size:1.8rem;
+	h5 {
+		font-size: 1.8rem;
 	}
-	a{
-		color:#000;
+	a {
+		color: #000;
 		text-decoration: underline;
 	}
-	ol,ul,dl{
-		margin:0;
-		padding:0;
+	ol,
+	ul,
+	dl {
+		margin: 0;
+		padding: 0;
 	}
+}
+
+.bc {
+	margin: 0;
+	padding: 0 5px;
+	overflow: hidden;
+	font-size: 12px;
+	margin-top: 20px;
+	z-index: 1;
+	position: relative;
+	@include md {
+		padding: 0 20px;
+	}
+}
+#breadcrumbs {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	background: rgba(255, 255, 255, 0.75);
+	@include md {
+		display: inline;
+		padding: 10px;
+	}
+}
+
+#breadcrumbs li {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 15px;
+}
+
+#breadcrumbs .separator {
+	font-weight: 100;
+	color: #ccc;
 }
 
 @import "woocommerce";

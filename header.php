@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The header for our theme
  *
@@ -32,13 +33,14 @@
     <link rel="profile" href="https://gmpg.org/xfn/11">
 
     <?php wp_head(); ?>
+    <style>
+        body {
+            overflow: hidden;
+        }
+    </style>
 </head>
 
-<style>
-    body {
-        overflow: hidden;
-    }
-</style>
+
 
 <body <?php body_class(); ?>>
 
@@ -96,11 +98,11 @@
                 <a href="<?php the_field('instagram', 'option'); ?>" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="<?php the_field('twitter', 'option'); ?>" target="_blank"><i class="fab fa-twitter-square"></i></a>
                 <?php
-        if (wp_is_mobile()) { ?>
-            <a href="mailto:<?php the_field('e-mail', 'option'); ?>"><i class="far fa-envelope"></i></a>
-        <?php } else { ?>
-            <a class="header_contact_btn"><i class="far fa-envelope"></i></a>
-        <?php } ?>
+                if (wp_is_mobile()) { ?>
+                    <a href="mailto:<?php the_field('e-mail', 'option'); ?>"><i class="far fa-envelope"></i></a>
+                <?php } else { ?>
+                    <a class="header_contact_btn"><i class="far fa-envelope"></i></a>
+                <?php } ?>
             </div>
         </nav>
         <div class="basket">
@@ -115,7 +117,7 @@
 
 
         <button class=" hamburger" aria-label="Menu">
-            <span class="hamburger__container" tabindex="-1">
+            <span class="hamburger__container">
                 <span class="hamburger__bars">
                 </span>
             </span>

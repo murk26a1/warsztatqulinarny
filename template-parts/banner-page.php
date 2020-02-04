@@ -1,4 +1,5 @@
 <?php
+
 /**
  *Banner-page
  */
@@ -15,6 +16,15 @@
 			<h1> <?php the_title(); ?>
 			</h1>
 		</div>
-		<h4><?php the_field('podtytul'); ?></h4>
+		<?php if (get_field('podtytul')) { ?>
+			<h4><?php the_field('podtytul'); ?></h4>
+		<?php } ?>
 	</div>
+
+	
+
+
+			
 </section>
+
+<?php custom_breadcrumbs(); ?>

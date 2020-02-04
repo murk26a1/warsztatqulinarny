@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all single posts
  *
@@ -13,7 +14,7 @@ get_header();
 	<?php
 	while (have_posts()) {
 		the_post();
-		?>
+	?>
 
 		<?php
 		if (wp_is_mobile()) {
@@ -61,99 +62,100 @@ get_header();
 						</div>
 					</div>
 				</div>
+				<ul>
+					<?php
+					$today = date('Ymd');
+					$i = 1;
 
-				<?php
-				$today = date('Ymd');
-				$i = 1;
+					// get posts
+					$posts = get_posts(array(
+						'post_type'    => 'product',
+						'meta_key'    => 'data_rozpoczecia',
+						'orderby'    => 'meta_value',
+						'order'        => 'ASC',
+						'posts_per_page'      => -1,
+						//'product_cat' => 'bez kategorii'
+					));
+					// loop
+					if ($posts) {
 
-				// get posts
-				$posts = get_posts(array(
-					'post_type'    => 'product',
-					'meta_key'    => 'data_rozpoczecia',
-					'orderby'    => 'meta_value',
-					'order'        => 'ASC',
-					'posts_per_page'      => -1,
-					//'product_cat' => 'bez kategorii'
-				));
-				// loop
-				if ($posts) {
-
-					foreach ($posts as $post) {
-						$start_date = get_field('data_rozpoczecia', false, false);
-						$start_date = new DateTime($start_date);
-						$start_date = $start_date->format('Ymd');
-						setup_postdata($post);
-						if ($start_date > $today && $i <= 1000) {
-							$i++;
-							?>
-
-							<?php
-
-							$dateformatstring = "F";
-							$unixtimestamp = strtotime($start_date);
-
-							$month_current =  date_i18n($dateformatstring, $unixtimestamp);
-
-
-							if ($month_current != $month) {
-								$month = $month_current; ?>
-
-								<div class="row month">
-									<span><?php echo $month; ?></span>
-								</div>
-
-							<?php }
-						?>
-							<div class="row wrapper">
-								<div class="col-5 col-md-3 col-no-padding d-none d-md-block">
-									<div class="course-img">
-										<?php the_post_thumbnail('medium'); ?>
-									</div>
-								</div>
-								<div class="col-12 col-md-6">
-									<h3>
-										<?php echo $product->get_name(); ?></br>
-									</h3>
-									<p>
-										Rozpoczęcie: <span><?php the_field('data_rozpoczecia'); ?></span>
-									</p>
-									<p>
-										Zakończenie: <span><?php the_field('data_zakonczenia'); ?></span>
-									</p>
-								</div>
+						foreach ($posts as $post) {
+							$start_date = get_field('data_rozpoczecia', false, false);
+							$start_date = new DateTime($start_date);
+							$start_date = $start_date->format('Ymd');
+							setup_postdata($post);
+							if ($start_date > $today && $i <= 1000) {
+								$i++;
+					?>
 
 								<?php
-								//get cat link
-								global $post;
-								$link = '';
-								$terms = get_the_terms($post->ID, 'product_cat');
-								if (!empty($terms[0])) {
-									$link = get_term_link($terms[0]->term_id, 'product_cat');
-								}
 
-								?>
+								$dateformatstring = "F";
+								$unixtimestamp = strtotime($start_date);
 
-								<div class="col-12 col-md-3">
-									<div class="double-btn-col">
-										<a href="<?php echo $link; ?>" class="m-btn m-btn-w">o szkoleniu</a>
-										<a href="<?php echo get_permalink($product->get_id()); ?>" class="m-btn">zapisz się</a>
+								$month_current =  date_i18n($dateformatstring, $unixtimestamp);
+
+
+								if ($month_current != $month) {
+									$month = $month_current; ?>
+
+									<div class="row month">
+										<span><?php echo $month; ?></span>
 									</div>
-								</div>
-								<div class="info price">
-									<?php echo $product->get_price(); ?>zł
-								</div>
-							</div>
 
+								<?php }
+								?>
+								<li>
+									<div class="row wrapper">
+										<div class="col-5 col-md-3 col-no-padding d-none d-md-block">
+											<div class="course-img">
+												<?php the_post_thumbnail('medium'); ?>
+											</div>
+										</div>
+										<div class="col-12 col-md-6">
+											<h3>
+												<?php echo $product->get_name(); ?></br>
+											</h3>
+											<p>
+												Rozpoczęcie: <span><?php the_field('data_rozpoczecia'); ?></span>
+											</p>
+											<p>
+												Zakończenie: <span><?php the_field('data_zakonczenia'); ?></span>
+											</p>
+										</div>
 
-						<?php
+										<?php
+										//get cat link
+										global $post;
+										$link = '';
+										$terms = get_the_terms($post->ID, 'product_cat');
+										if (!empty($terms[0])) {
+											$link = get_term_link($terms[0]->term_id, 'product_cat');
+										}
+
+										?>
+
+										<div class="col-12 col-md-3">
+											<div class="double-btn-col">
+												<a href="<?php echo $link; ?>" class="m-btn m-btn-w">o szkoleniu</a>
+												<a href="<?php echo get_permalink($product->get_id()); ?>" class="m-btn">zapisz się</a>
+											</div>
+										</div>
+										<div class="info price">
+											<?php echo $product->get_price(); ?>zł
+										</div>
+									</div>
+
+								</li>
+					<?php
+							}
+						}
+
+						wp_reset_postdata();
 					}
-				}
 
-				wp_reset_postdata();
-			}
-
-			?>
-
+					?>
+				</ul>
 
 			</div>
 		</div>

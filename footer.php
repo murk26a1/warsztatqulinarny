@@ -36,15 +36,15 @@
             </div>
             <div class="col-12 col-md-4 wrapper">
                 <h3>Kontakt</h3>
-                <ul>
-                    <li><i class="far fa-envelope"></i><a href="mailto:<?php the_field('e-mail', 'option'); ?>"><?php the_field('e-mail', 'option'); ?></a></li>
-                    <li><i class="fas fa-phone"></i><a href="tel:<?php the_field('telefon', 'option'); ?>"><?php the_field('telefon', 'option'); ?></a></li>
-                    <li><i class="fas fa-phone"></i><a href="tel:<?php the_field('telefon2', 'option'); ?>"><?php the_field('telefon2', 'option'); ?></a></li>
-                    <li><i class="fas fa-home"></i><?php the_field('adres', 'option'); ?></li>
+                <ul class="vcard">
+                    <li><i class="far fa-envelope"></i><a class="email" href="mailto:<?php the_field('e-mail', 'option'); ?>"><?php the_field('e-mail', 'option'); ?></a></li>
+                    <li><i class="fas fa-phone"></i><a class="tel" href="tel:<?php the_field('telefon', 'option'); ?>"><?php the_field('telefon', 'option'); ?></a></li>
+                    <li><i class="fas fa-phone"></i><a class="tel" href="tel:<?php the_field('telefon2', 'option'); ?>"><?php the_field('telefon2', 'option'); ?></a></li>
+                    <li><i class="fas fa-home"></i><span class="adr"><?php the_field('adres', 'option'); ?></span></li>
                 </ul>
             </div>
             <div class="col-12 col-md-4 wrapper">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.637669536011!2d20.019980415837956!3d50.09307032093193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4716454fcaa07f0b%3A0x17c21817a9e15650!2sGen.+Leopolda+Okulickiego+51%2C+31-637+Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1562171072407!5m2!1spl!2spl" width="350" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.637669536011!2d20.019980415837956!3d50.09307032093193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4716454fcaa07f0b%3A0x17c21817a9e15650!2sGen.+Leopolda+Okulickiego+51%2C+31-637+Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1562171072407!5m2!1spl!2spl" width="350" height="200" style="border:0" allowfullscreen></iframe>
             </div>
         </div>
     </div>

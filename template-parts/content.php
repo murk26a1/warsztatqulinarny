@@ -9,7 +9,7 @@
 
 ?>
 
-<article class="article-blog" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article class="hentry article-blog" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<div class="thumbnail">
 		<?php warsztatqulinarny_post_thumbnail(); ?>

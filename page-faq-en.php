@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The template for displaying all single posts
  *
@@ -14,7 +13,7 @@ get_header();
 	<?php
 	while (have_posts()) {
 		the_post();
-	?>
+		?>
 
 		<?php
 		if (wp_is_mobile()) {
@@ -31,9 +30,9 @@ get_header();
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
-						<p class="faq-header">
+						<span class="faq-header">
 							Pytania i odpowiedzi
-						</p>
+						</span>
 						<div class="accordion" id="faq">
 
 							<?php
@@ -44,7 +43,7 @@ get_header();
 								// loop through the rows of data
 								while (have_rows('faq')) : the_row();
 									$i++;
-							?>
+									?>
 
 									<div class="card <?php if ($i % 2 == 0) { ?> card-light <?php } ?> ">
 										<div class="card-header" id="heading-<?php echo $i ?>">
@@ -62,9 +61,9 @@ get_header();
 										</div>
 									</div>
 
-							<?php endwhile;
-							endif;
-							?>
+								<?php endwhile;
+						endif;
+						?>
 
 						</div>
 					</div>
